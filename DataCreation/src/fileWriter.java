@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import org.json.simple.JSONObject;
 
 public class fileWriter {
+	private BufferedWriter file;
+	
+	public fileWriter(){}
 	
 	@SuppressWarnings("unchecked")
 	public int addMovie(Movie movie) {
@@ -18,11 +21,11 @@ public class fileWriter {
 		movieJSON.put("providers", (ArrayList<Long>)movie.providers);
 		movieJSON.put("actors", (ArrayList<Long>)movie.actors);
 		
-		try (BufferedWriter file = new BufferedWriter(new FileWriter("../DataCreation/outputMovies.txt"))) {
+		try {
+			file = new BufferedWriter(new FileWriter("../DataCreation/outputMovies.txt",true));
             file.write(movieJSON.toJSONString());
             file.newLine();
             file.flush();
-            file.close();
         } catch (IOException e) {
             e.printStackTrace();
             return 1;
@@ -45,5 +48,17 @@ public class fileWriter {
 	public int addService() {
 		return 1;
 	}
-	
+	public int closeWriter() {
+		if(this.file == null) {
+			return 1;
+		}else {
+			try {
+				file.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				return 2;
+			}
+		}
+		return 0;
+	}
 }

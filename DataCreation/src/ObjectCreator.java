@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -24,8 +25,10 @@ class ObjectCreator{
 	ArrayList<Actor> actors = new ArrayList<Actor>();
 	ArrayList<Movie> movies = new ArrayList<Movie>();
 	ArrayList<TVShow> tvShows = new ArrayList<TVShow>();
+	fileWriter fw = new fileWriter();
 	
 	public ObjectCreator() {}
+	
 	public ArrayList<Actor> getActors() {
 		return actors;
 	}
@@ -138,6 +141,7 @@ class ObjectCreator{
 					flatrate = null;
 					rent = null;
 					buy = null;
+					continue;
 				}else {
 					flatrate = (JSONArray) providerIDs.get("flatrate");
 					rent = (JSONArray) providerIDs.get("rent");
@@ -168,8 +172,9 @@ class ObjectCreator{
 				System.err.println("ParseException");
 				e.printStackTrace();
 			}
-			movies.add(toAdd);
+			fw.addMovie(toAdd);//add error handling
 		}
+		fw.closeWriter();//add error handling
 	}
 	public void createTVShows() {
 		String tvURL = url + "tv/";
@@ -235,6 +240,7 @@ class ObjectCreator{
 					flatrate = null;
 					rent = null;
 					buy = null;
+					continue;
 				}else {
 					flatrate = (JSONArray) providerIDs.get("flatrate");
 					rent = (JSONArray) providerIDs.get("rent");

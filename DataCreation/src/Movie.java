@@ -3,12 +3,11 @@ import java.util.ArrayList;
 public class Movie {
 	public long ID;
 	public String title = "";
-	public String company = "";
-	public float rating = 0;
+	public double rating = 0;
 	public String releaseDate = "";
-	public int runtime;
-	public ArrayList<Integer> providers;
-	public ArrayList<Integer> actors;
+	public long runtime = 0;
+	public ArrayList<Long> providers = new ArrayList<Long>();
+	public ArrayList<Long> actors = new ArrayList<Long>();
 	
 	public Movie(long ID) {
 		this.ID = ID;

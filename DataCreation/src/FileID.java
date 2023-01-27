@@ -3,6 +3,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -44,6 +46,38 @@ public class FileID {
 			Long id = (Long) original.get("id");
 			
 			output.add(id);
+		}
+		return output;
+	}
+	
+	public ArrayList<Movie> getMovies(){
+		ArrayList<Movie> output = new ArrayList<Movie>();
+		for(Object o : fromFile) {
+			JSONObject original = (JSONObject) o;
+			Long id = Long.parseLong((String) original.get("id"));
+			String title = (String) original.get("title");
+			Long rating = Long.parseLong((String) original.get("rating"));
+			String releaseDate = (String) original.get("releaseDate");
+			Long runtime = Long.parseLong((String) original.get("runtime"));
+			JSONArray jproviders = (JSONArray) original.get("providers");
+			ArrayList<Long> providers = new ArrayList<Long>();
+			for(Object oo : jproviders) {
+				providers.add(Long.parseLong((String) oo));
+			}
+			JSONArray jactors = (JSONArray) original.get("actors");
+			ArrayList<Long> actors = new ArrayList<Long>();
+			for(Object oo : jactors) {
+				actors.add(Long.parseLong((String) oo));
+			}
+			
+			Movie movie = new Movie(id);
+			movie.title = title;
+			movie.rating = rating;
+			movie.releaseDate = releaseDate;
+			movie.runtime = runtime;
+			movie.providers = providers;
+			movie.actors = actors;
+			output.add(movie);
 		}
 		return output;
 	}

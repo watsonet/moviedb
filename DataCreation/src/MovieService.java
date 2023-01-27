@@ -1,5 +1,6 @@
 import java.sql.CallableStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -23,6 +24,7 @@ public class MovieService {
 				cs.setFloat(4, (float) mov.rating);
 				cs.setString(5,  mov.releaseDate);
 				cs.setInt(6, 0);
+				cs.registerOutParameter(1, Types.INTEGER);
 				
 				cs.execute();
 				int returnValue = cs.getInt(1);
@@ -48,13 +50,14 @@ public class MovieService {
 					JOptionPane.showMessageDialog(null, "Invalid value for isAdult");
 				}
 				if(returnValue == 8) {
-					JOptionPane.showMessageDialog(null, "Rating must be between 0 and 5");
+					JOptionPane.showMessageDialog(null, "Rating must be between 0 and 10");
 				}
 				
 				
 				cs = dbService.getConnection().prepareCall("{? = call addMovie(?, ?)}");
 				cs.setLong(2, mov.ID);
 				cs.setInt(3,  (int) mov.runtime);
+				cs.registerOutParameter(1, Types.INTEGER);
 				
 				cs.execute();
 				returnValue = cs.getInt(1);

@@ -18,9 +18,9 @@ class ObjectCreator{
 	String key = "?api_key=a4fda0a2adb7aecab7457592037b3b19";
 	URLConnection connection;
 	
-	String peopleFilepath = "../DataCreation/person_ids_01_11_2023.json";
-	String movieFilepath = "../DataCreation/movie_ids_01_11_2023.json";
-	String tvShowFilepath = "../DataCreation/tv_series_ids_01_11_2023.json";
+	String peopleFilepath = "../DataCreation/person_ids_01_27_2023.json";
+	String movieFilepath = "../DataCreation/movie_ids_01_27_2023.json";
+	String tvShowFilepath = "../DataCreation/tv_series_ids_01_27_2023.json";
 	
 	ArrayList<Actor> actors = new ArrayList<Actor>();
 	ArrayList<Movie> movies = new ArrayList<Movie>();

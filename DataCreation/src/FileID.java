@@ -54,20 +54,20 @@ public class FileID {
 		ArrayList<Movie> output = new ArrayList<Movie>();
 		for(Object o : fromFile) {
 			JSONObject original = (JSONObject) o;
-			Long id = Long.parseLong((String) original.get("id"));
+			Long id = (Long) original.get("id");
 			String title = (String) original.get("title");
-			Long rating = Long.parseLong((String) original.get("rating"));
+			Double rating = (Double) original.get("rating");
 			String releaseDate = (String) original.get("releaseDate");
-			Long runtime = Long.parseLong((String) original.get("runtime"));
+			Long runtime = (Long) original.get("runtime");
 			JSONArray jproviders = (JSONArray) original.get("providers");
 			ArrayList<Long> providers = new ArrayList<Long>();
 			for(Object oo : jproviders) {
-				providers.add(Long.parseLong((String) oo));
+				providers.add((Long) oo);
 			}
 			JSONArray jactors = (JSONArray) original.get("actors");
 			ArrayList<Long> actors = new ArrayList<Long>();
 			for(Object oo : jactors) {
-				actors.add(Long.parseLong((String) oo));
+				actors.add((Long) oo);
 			}
 			
 			Movie movie = new Movie(id);

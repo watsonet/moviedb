@@ -81,4 +81,70 @@ public class FileID {
 		}
 		return output;
 	}
+	
+	//EDIT THIS
+	public ArrayList<TVShow> getTVShows(){
+		ArrayList<TVShow> output = new ArrayList<TVShow>();
+		for(Object o : fromFile) {
+			JSONObject original = (JSONObject) o;
+			Long id = (Long) original.get("id");
+			String title = (String) original.get("title");
+			Double rating = (Double) original.get("rating");
+			String releaseDate = (String) original.get("releaseDate");
+			Long runtime = (Long) original.get("runtime");
+			JSONArray jproviders = (JSONArray) original.get("providers");
+			ArrayList<Long> providers = new ArrayList<Long>();
+			for(Object oo : jproviders) {
+				providers.add((Long) oo);
+			}
+			JSONArray jactors = (JSONArray) original.get("actors");
+			ArrayList<Long> actors = new ArrayList<Long>();
+			for(Object oo : jactors) {
+				actors.add((Long) oo);
+			}
+			
+			TVShow show = new TVShow(id);
+			show.title = title;
+			show.rating = rating;
+			show.releaseDate = releaseDate;
+//			show.runtime = runtime;
+			show.providers = providers;
+			show.actors = actors;
+			output.add(show);
+		}
+		return output;
+	}
+	
+	//EDIT THIS
+		public ArrayList<Actor> getActor(){
+			ArrayList<Actor> output = new ArrayList<Actor>();
+			for(Object o : fromFile) {
+				JSONObject original = (JSONObject) o;
+				Long id = (Long) original.get("id");
+				String title = (String) original.get("title");
+				Double rating = (Double) original.get("rating");
+				String releaseDate = (String) original.get("releaseDate");
+				Long runtime = (Long) original.get("runtime");
+				JSONArray jproviders = (JSONArray) original.get("providers");
+				ArrayList<Long> providers = new ArrayList<Long>();
+				for(Object oo : jproviders) {
+					providers.add((Long) oo);
+				}
+				JSONArray jactors = (JSONArray) original.get("actors");
+				ArrayList<Long> actors = new ArrayList<Long>();
+				for(Object oo : jactors) {
+					actors.add((Long) oo);
+				}
+				
+				Actor actor = new Actor(id);
+//				Actor.title = title;
+//				Actor.rating = rating;
+//				Actor.releaseDate = releaseDate;
+//				show.runtime = runtime;
+//				Actor.providers = providers;
+//				Actor.actors = actors;
+				output.add(actor);
+			}
+			return output;
+		}
 }

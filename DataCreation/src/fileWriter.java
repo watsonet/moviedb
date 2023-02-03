@@ -57,25 +57,6 @@ public class fileWriter {
 		return 0;	
 	}
 	
-//	@SuppressWarnings("unchecked")
-//	public int addMedia(TVShow tv) {
-//		JSONObject tvJSON = new JSONObject();
-//		tvJSON.put("id", tv.ID);
-//		tvJSON.put("title",  tv.title);
-//		tvJSON.put("rating", (double)tv.rating);
-//		tvJSON.put("releaseDate", tv.releaseDate);
-//		
-//		try {
-//			file = new BufferedWriter(new FileWriter("../DataCreation/outputTV.txt",true));
-//            file.write(tvJSON.toJSONString());
-//            file.newLine();
-//            file.flush();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return 1;
-//        }
-//		return 0;
-//	}
 	@SuppressWarnings("unchecked")
 	public int addActor(Actor actor) {
 		JSONObject actorJSON = new JSONObject();
@@ -95,9 +76,23 @@ public class fileWriter {
 		return 0;		
 	}
 	
-	public int addService() {
-		return 1;
+	@SuppressWarnings("unchecked")
+	public int addService(StreamingService service) {
+		JSONObject serviceJSON = new JSONObject();
+		serviceJSON.put("name", service.name);
+		serviceJSON.put("id", service.ID);
+		try {
+			file = new BufferedWriter(new FileWriter("../DataCreation/outputServices.txt",true));
+            file.write(serviceJSON.toJSONString());
+            file.newLine();
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 1;
+        }
+		return 0;
 	}
+	
 	public int closeWriter() {
 		if(this.file == null) {
 			return 1;

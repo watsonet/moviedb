@@ -3,18 +3,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import ui.LoginFrame;
+
 public class main {
 
-	public static void main(String[] args) {
-		//createFiles();
-		addToDB();
+	public static void Main(String[] args) {
+		createFiles();
+		//addToDB();
+		LoginFrame login = new LoginFrame();
+		login.createFrame();
 	}
 	
 	private static void createFiles() {
 		ObjectCreator oc = new ObjectCreator();
-		oc.createMovies();
-		oc.createTVShows();
-		oc.createActors();
+//		oc.createMovies();
+//		oc.createTVShows();
+//		oc.createActors();
+		oc.createStreamingServices();
 	}
 	
 	private static void addToDB() {

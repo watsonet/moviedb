@@ -25,6 +25,7 @@ class ObjectCreator{
 	ArrayList<Actor> actors = new ArrayList<Actor>();
 	ArrayList<Movie> movies = new ArrayList<Movie>();
 	ArrayList<TVShow> tvShows = new ArrayList<TVShow>();
+	ArrayList<StreamingService> streamingServices = new ArrayList<StreamingService>();
 	fileWriter fw = new fileWriter();
 	
 	public ObjectCreator() {}
@@ -39,6 +40,9 @@ class ObjectCreator{
 
 	public ArrayList<TVShow> getTvShows() {
 		return tvShows;
+	}
+	public ArrayList<StreamingService> getStreamingServices() {
+		return streamingServices;
 	}
 	
 	public void createActors() {
@@ -73,9 +77,84 @@ class ObjectCreator{
 				System.err.println("ParseException");
 				e.printStackTrace();
 			}
-			actors.add(toAdd);
+			actors.add(toAdd); //debug code
+			//fw.addActor(toAdd);//add error handling
 		}
+		//fw.closeWriter();//add error handling
 	}
+
+	public void createStreamingServices() {
+		String streamingTVURL = url + "watch/providers/movie";
+		String streamingMoviesURL = url + "watch/providers/tv";
+		StreamingService toAdd = null;
+		try {
+			connection = new URL(streamingTVURL + key).openConnection();
+			connection.setRequestProperty("Accept-Charset", "UTF-8");
+		} catch (MalformedURLException e) {
+			System.err.println("bad url");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.err.println("IOException");
+			e.printStackTrace();
+		}
+		try {
+			InputStream response = connection.getInputStream();
+			JSONParser jsonParser = new JSONParser();
+			JSONObject extendedStreamObject = (JSONObject)jsonParser.parse(new InputStreamReader(response, "UTF-8"));
+			JSONArray results = (JSONArray)(extendedStreamObject.get("results"));
+			
+			for(Object s : results) {
+				JSONObject service = (JSONObject) s;
+				Long id = (Long) service.get("provider_id");
+				String name = (String) service.get("provider_name");
+				toAdd = new StreamingService(id, name);
+				if(toAdd != null)
+					fw.addService(toAdd);//add error handling
+			}
+		} catch (IOException e) {
+			System.err.println("IOException");
+			e.printStackTrace();
+		} catch (ParseException e) {
+			System.err.println("ParseException");
+			e.printStackTrace();
+		}
+		
+		//NOTE!!! this will definitely result in duplicates; make sure sproc refuses dupes.
+		try {
+			connection = new URL(streamingMoviesURL + key).openConnection();
+			connection.setRequestProperty("Accept-Charset", "UTF-8");
+		} catch (MalformedURLException e) {
+			System.err.println("bad url");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.err.println("IOException");
+			e.printStackTrace();
+		}
+		try {
+			InputStream response = connection.getInputStream();
+			JSONParser jsonParser = new JSONParser();
+			JSONObject extendedStreamObject = (JSONObject)jsonParser.parse(new InputStreamReader(response, "UTF-8"));
+			JSONArray results = (JSONArray)(extendedStreamObject.get("results"));
+			
+			for(Object s : results) {
+				JSONObject service = (JSONObject) s;
+				Long id = (Long) service.get("provider_id");
+				String name = (String) service.get("provider_name");
+				toAdd = new StreamingService(id, name);
+				streamingServices.add(toAdd);
+				if(toAdd != null)
+					fw.addService(toAdd);//add error handling
+			}
+		} catch (IOException e) {
+			System.err.println("IOException");
+			e.printStackTrace();
+		} catch (ParseException e) {
+			System.err.println("ParseException");
+			e.printStackTrace();
+		}
+		fw.closeWriter();
+	}
+	
 	public void createMovies() {
 		String movieURL = url + "movie/";
 		FileID movieReader = new FileID(movieFilepath);
@@ -272,7 +351,9 @@ class ObjectCreator{
 				e.printStackTrace();
 			}
 			toAdd.ID += 2000000;//necessary to make sure TV and movie IDs do not overlap
-			tvShows.add(toAdd);
+			//tvShows.add(toAdd); //debug code
+			fw.addTV(toAdd);//add error handling
 		}
+		fw.closeWriter();//add error handling
 	}
 }

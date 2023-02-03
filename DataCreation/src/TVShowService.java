@@ -30,7 +30,7 @@ public class TVShowService {
 				cs.execute();
 				int returnValue = cs.getInt(1);
 				if(returnValue == 1) {
-					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Show table");
+					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Media table");
 				}
 				if(returnValue == 2) {
 					JOptionPane.showMessageDialog(null, "ID cannot be null");
@@ -79,6 +79,16 @@ public class TVShowService {
 					JOptionPane.showMessageDialog(null, "Runtime can not be null");
 				}
 				
+				cs = dbService.getConnection().prepareCall("{? = call addStars(?, ?)}");
+				cs.setLong(2,  show.ID);
+				cs.registerOutParameter(1, Types.INTEGER);
+				for(Long actID : show.actors) {
+					cs.setLong(3, actID);
+					cs.execute();
+					returnValue = cs.getInt(1);
+					
+					//TODO handle DB-side errors codes
+				}
 				
 			}catch(SQLException e) {
 				e.printStackTrace();

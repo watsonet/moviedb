@@ -29,7 +29,7 @@ public class MovieService {
 				cs.execute();
 				int returnValue = cs.getInt(1);
 				if(returnValue == 1) {
-					JOptionPane.showMessageDialog(null, "ID" + mov.ID + "already exists in Movie table");
+					JOptionPane.showMessageDialog(null, "ID " + mov.ID + " already exists in Movie table");
 				}
 				if(returnValue == 2) {
 					JOptionPane.showMessageDialog(null, "ID cannot be null");
@@ -65,10 +65,10 @@ public class MovieService {
 					JOptionPane.showMessageDialog(null, "ID can not be null");
 				}
 				if(returnValue == 2) {
-					JOptionPane.showMessageDialog(null, "ID" + mov.ID + "does not exist in Media table");
+					JOptionPane.showMessageDialog(null, "ID " + mov.ID + " does not exist in Media table");
 				}
 				if(returnValue == 3) {
-					JOptionPane.showMessageDialog(null, "ID" + mov.ID + "already exists in Movie table");
+					JOptionPane.showMessageDialog(null, "ID " + mov.ID + " already exists in Movie table");
 				}
 				if(returnValue == 4) {
 					JOptionPane.showMessageDialog(null, "Runtime can not be null");

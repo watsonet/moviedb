@@ -14,7 +14,7 @@ public class TVShowService {
 		this.dbService = dbService;
 	}
 
-	public void addMovies() {
+	public void addTVShows() {
 		FileID fileReader = new FileID(TVFilepath);
 		ArrayList<TVShow> TVshows = fileReader.getTVShows();
 		for(TVShow show : TVshows) {
@@ -30,7 +30,7 @@ public class TVShowService {
 				cs.execute();
 				int returnValue = cs.getInt(1);
 				if(returnValue == 1) {
-					JOptionPane.showMessageDialog(null, "ID" + show.ID + "already exists in Show table");
+					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Show table");
 				}
 				if(returnValue == 2) {
 					JOptionPane.showMessageDialog(null, "ID cannot be null");
@@ -55,9 +55,13 @@ public class TVShowService {
 				}
 				
 				
-				cs = dbService.getConnection().prepareCall("{? = call addMovie(?, ?)}");
+				cs = dbService.getConnection().prepareCall("{? = call addShow(?, ?, ?, ?)}");
 				cs.setLong(2, show.ID);
-//				cs.setInt(3,  (int) show.runtime);
+				cs.setLong(3,  (long) show.numSeasons);
+				cs.setLong(4,  (long) show.numEpisodes);
+				cs.setString(5, show.lastEpDate);	//unsure if correct data type
+
+
 				cs.registerOutParameter(1, Types.INTEGER);
 				
 				cs.execute();
@@ -66,10 +70,10 @@ public class TVShowService {
 					JOptionPane.showMessageDialog(null, "ID can not be null");
 				}
 				if(returnValue == 2) {
-					JOptionPane.showMessageDialog(null, "ID" + show.ID + "does not exist in Media table");
+					JOptionPane.showMessageDialog(null, "ID " + show.ID + " does not exist in Media table");
 				}
 				if(returnValue == 3) {
-					JOptionPane.showMessageDialog(null, "ID" + show.ID + "already exists in Movie table");
+					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Show table");
 				}
 				if(returnValue == 4) {
 					JOptionPane.showMessageDialog(null, "Runtime can not be null");

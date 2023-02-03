@@ -77,10 +77,10 @@ class ObjectCreator{
 				System.err.println("ParseException");
 				e.printStackTrace();
 			}
-			actors.add(toAdd); //debug code
-			//fw.addActor(toAdd);//add error handling
+			//actors.add(toAdd); //debug code
+			fw.addActor(toAdd);//add error handling
 		}
-		//fw.closeWriter();//add error handling
+		fw.closeWriter();//add error handling
 	}
 
 	public void createStreamingServices() {
@@ -109,6 +109,7 @@ class ObjectCreator{
 				String name = (String) service.get("provider_name");
 				toAdd = new StreamingService(id, name);
 				if(toAdd != null)
+					//System.out.println(toAdd.name);
 					fw.addService(toAdd);//add error handling
 			}
 		} catch (IOException e) {

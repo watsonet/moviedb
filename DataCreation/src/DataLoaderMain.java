@@ -3,22 +3,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class DataLoader {
+public class DataLoaderMain {
 
 	public static void main(String[] args) {
-		createFiles();
-		//addToDB();
+		int files = createFiles();
+		//int add = addToDB();
 	}
 	
-	private static void createFiles() {
+	private static int createFiles() {
 		ObjectCreator oc = new ObjectCreator();
-//		oc.createMovies();
-//		oc.createTVShows();
-//		oc.createActors();
+		oc.createMovies();
+		oc.createTVShows();
+		oc.createActors();
 		oc.createStreamingServices();
+		return 0;
 	}
 	
-	private static void addToDB() {
+	private static int addToDB() {
 		DatabaseConnectionService dbcs = null;
 		try(InputStream input = new FileInputStream("../DataCreation/src/mediadb.properties")) {
 			Properties properties = new Properties();
@@ -28,11 +29,14 @@ public class DataLoader {
 			
 			MovieService mov = new MovieService(dbcs);
 			mov.addMovies();
+			
 		} catch (IOException ex) {
             ex.printStackTrace();
         }
 		if(dbcs != null) {
 			dbcs.closeConnection();
+			return 0;
 		}
+		return 1;
 	}
 }

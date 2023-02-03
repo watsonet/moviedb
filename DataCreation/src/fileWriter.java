@@ -59,6 +59,7 @@ public class fileWriter {
 	
 	@SuppressWarnings("unchecked")
 	public int addActor(Actor actor) {
+		System.out.println("I'm working!");
 		JSONObject actorJSON = new JSONObject();
 		actorJSON.put("name", actor.name);
 		actorJSON.put("gender", actor.gender);

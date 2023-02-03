@@ -3,15 +3,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import ui.LoginFrame;
+public class DataLoader {
 
-public class main {
-
-	public static void Main(String[] args) {
+	public static void main(String[] args) {
 		createFiles();
 		//addToDB();
-		LoginFrame login = new LoginFrame();
-		login.createFrame();
 	}
 	
 	private static void createFiles() {

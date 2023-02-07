@@ -1,0 +1,961 @@
+{"name":"Apple iTunes","id":2}
+{"name":"Google Play Movies","id":3}
+{"name":"Vudu","id":7}
+{"name":"Netflix","id":8}
+{"name":"Amazon Prime Video","id":9}
+{"name":"Amazon Video","id":10}
+{"name":"MUBI","id":11}
+{"name":"Crackle","id":12}
+{"name":"realeyz","id":14}
+{"name":"Hulu","id":15}
+{"name":"NetMovies","id":19}
+{"name":"maxdome Store","id":20}
+{"name":"Stan","id":21}
+{"name":"Quickflix","id":22}
+{"name":"Quickflix Store","id":24}
+{"name":"Fandor","id":25}
+{"name":"Netzkino","id":28}
+{"name":"Sky Go","id":29}
+{"name":"WOW","id":30}
+{"name":"Alleskino","id":33}
+{"name":"MGM Plus","id":34}
+{"name":"Rakuten TV","id":35}
+{"name":"Showtime","id":37}
+{"name":"BBC iPlayer","id":38}
+{"name":"Now TV","id":39}
+{"name":"Chili","id":40}
+{"name":"ITVX","id":41}
+{"name":"Starz","id":43}
+{"name":"Looke","id":47}
+{"name":"Volta","id":53}
+{"name":"BoxOffice","id":54}
+{"name":"ShowMax","id":55}
+{"name":"OCS Go","id":56}
+{"name":"Canal VOD","id":58}
+{"name":"Bbox VOD","id":59}
+{"name":"Orange VOD","id":61}
+{"name":"Atres Player","id":62}
+{"name":"Filmin","id":63}
+{"name":"Filmin Plus","id":64}
+{"name":"Filmin Latino","id":66}
+{"name":"Blim","id":67}
+{"name":"Microsoft Store","id":68}
+{"name":"Pathé Thuis","id":71}
+{"name":"Videoland","id":72}
+{"name":"Tubi TV","id":73}
+{"name":"Viaplay","id":76}
+{"name":"C More","id":77}
+{"name":"CBS","id":78}
+{"name":"The CW","id":83}
+{"name":"U-NEXT","id":84}
+{"name":"dTV","id":85}
+{"name":"Acorn TV","id":87}
+{"name":"Kividoo","id":89}
+{"name":"Naver Store","id":96}
+{"name":"Watcha","id":97}
+{"name":"Shudder","id":99}
+{"name":"GuideDoc","id":100}
+{"name":"All 4","id":103}
+{"name":"Timvision","id":109}
+{"name":"Infinity+","id":110}
+{"name":"Ivi","id":113}
+{"name":"Okko","id":115}
+{"name":"Amediateka","id":116}
+{"name":"Kinopoisk","id":117}
+{"name":"HBO","id":118}
+{"name":"Amazon Prime Video","id":119}
+{"name":"Voot","id":121}
+{"name":"Hotstar","id":122}
+{"name":"FXNow","id":123}
+{"name":"Bookmyshow","id":124}
+{"name":"Sky Store","id":130}
+{"name":"SBS On Demand","id":132}
+{"name":"Videobuster","id":133}
+{"name":"Foxtel Now","id":134}
+{"name":"ABC iview","id":135}
+{"name":"Filmo TV","id":138}
+{"name":"Cineplex","id":140}
+{"name":"Sundance Now","id":143}
+{"name":"iciTouTV","id":146}
+{"name":"Sixplay","id":147}
+{"name":"ABC","id":148}
+{"name":"Movistar Plus","id":149}
+{"name":"blue TV","id":150}
+{"name":"BritBox","id":151}
+{"name":"Lifetime","id":157}
+{"name":"Viu","id":158}
+{"name":"Catchplay","id":159}
+{"name":"iflix","id":160}
+{"name":"Hollystar","id":164}
+{"name":"Claro video","id":167}
+{"name":"Watchbox","id":171}
+{"name":"Netflix Kids","id":175}
+{"name":"Pantaflix","id":177}
+{"name":"MagentaTV","id":178}
+{"name":"Hollywood Suite","id":182}
+{"name":"Universal Pictures","id":184}
+{"name":"Screambox","id":185}
+{"name":"YouTube Premium","id":188}
+{"name":"Curzon Home Cinema","id":189}
+{"name":"Curiosity Stream","id":190}
+{"name":"Kanopy","id":191}
+{"name":"YouTube","id":192}
+{"name":"Starz Play Amazon Channel","id":194}
+{"name":"Animax Plus Amazon Channel","id":195}
+{"name":"AcornTV Amazon Channel","id":196}
+{"name":"BritBox Amazon Channel","id":197}
+{"name":"Fandor Amazon Channel","id":199}
+{"name":"MUBI Amazon Channel","id":201}
+{"name":"Screambox Amazon Channel","id":202}
+{"name":"Showtime Amazon Channel","id":203}
+{"name":"Shudder Amazon Channel","id":204}
+{"name":"Sundance Now Amazon Channel","id":205}
+{"name":"The Roku Channel","id":207}
+{"name":"PBS","id":209}
+{"name":"Sky","id":210}
+{"name":"Freeform","id":211}
+{"name":"Hoopla","id":212}
+{"name":"Syfy","id":215}
+{"name":"Eros Now","id":218}
+{"name":"Das Erste Mediathek","id":219}
+{"name":"Jio Cinema","id":220}
+{"name":"Rai Play","id":222}
+{"name":"BFI Player","id":224}
+{"name":"Telecine Play","id":227}
+{"name":"Crave","id":230}
+{"name":"Zee5","id":232}
+{"name":"Arte","id":234}
+{"name":"YouTube Free","id":235}
+{"name":"France TV","id":236}
+{"name":"Sony Liv","id":237}
+{"name":"Universcine","id":239}
+{"name":"Popcornflix","id":241}
+{"name":"Meo","id":242}
+{"name":"Comedy Central","id":243}
+{"name":"HBO Poland","id":244}
+{"name":"VOD Poland","id":245}
+{"name":"7plus","id":246}
+{"name":"Pantaya","id":247}
+{"name":"Boomerang","id":248}
+{"name":"Horizon","id":250}
+{"name":"Urban Movie Channel","id":251}
+{"name":"Dove Channel","id":254}
+{"name":"Yupp TV","id":255}
+{"name":"fuboTV","id":257}
+{"name":"Criterion Channel","id":258}
+{"name":"Magnolia Selects","id":259}
+{"name":"WWE Network","id":260}
+{"name":"Nickhits Amazon Channel","id":261}
+{"name":"Noggin Amazon Channel","id":262}
+{"name":"History Vault","id":268}
+{"name":"Funimation Now","id":269}
+{"name":"Neon TV","id":273}
+{"name":"QubitTV","id":274}
+{"name":"Laugh Out Loud","id":275}
+{"name":"Smithsonian Channel","id":276}
+{"name":"Pure Flix","id":278}
+{"name":"Redbox","id":279}
+{"name":"Hallmark Movies","id":281}
+{"name":"Crunchyroll","id":283}
+{"name":"Lifetime Movie Club","id":284}
+{"name":"BBC Player Amazon Channel","id":285}
+{"name":"ZDF Herzkino Amazon Channel","id":286}
+{"name":"BFI Player Amazon Channel","id":287}
+{"name":"Boomerang Amazon Channel","id":288}
+{"name":"Cinemax Amazon Channel","id":289}
+{"name":"Hallmark Movies Now Amazon Channel","id":290}
+{"name":"MZ Choice Amazon Channel","id":291}
+{"name":"Pantaya Amazon Channel","id":292}
+{"name":"PBS Kids Amazon Channel","id":293}
+{"name":"PBS Masterpiece Amazon Channel","id":294}
+{"name":"Viewster Amazon Channel","id":295}
+{"name":"Hayu Amazon Channel","id":296}
+{"name":"Ziggo TV","id":297}
+{"name":"RTL+","id":298}
+{"name":"Sling TV Orange and Blue","id":299}
+{"name":"Pluto TV","id":300}
+{"name":"Joyn","id":304}
+{"name":"Crave Starz","id":305}
+{"name":"Globoplay","id":307}
+{"name":"O2 TV","id":308}
+{"name":"Sun Nxt","id":309}
+{"name":"LaCinetek","id":310}
+{"name":"Be TV Go","id":311}
+{"name":"VRT MAX","id":312}
+{"name":"Yelo Play","id":313}
+{"name":"CBC Gem","id":314}
+{"name":"Hoichoi","id":315}
+{"name":"Alt Balaji","id":319}
+{"name":"Sky X","id":321}
+{"name":"USA Network","id":322}
+{"name":"Yle Areena","id":323}
+{"name":"Cinemas a la Demande","id":324}
+{"name":"CTV","id":326}
+{"name":"FlixFling","id":331}
+{"name":"VUDU Free","id":332}
+{"name":"My5","id":333}
+{"name":"Filmtastic Amazon Channel","id":334}
+{"name":"Disney Plus","id":337}
+{"name":"Ruutu","id":338}
+{"name":"Movistar Play","id":339}
+{"name":"blutv","id":341}
+{"name":"puhutv","id":342}
+{"name":"Bet+ Amazon Channel","id":343}
+{"name":"Rakuten Viki","id":344}
+{"name":"Kino on Demand","id":349}
+{"name":"Apple TV Plus","id":350}
+{"name":"AMC on Demand","id":352}
+{"name":"WAKANIM","id":354}
+{"name":"Darkmatter TV","id":355}
+{"name":"wavve","id":356}
+{"name":"DocPlay","id":357}
+{"name":"DIRECTV","id":358}
+{"name":"Mediaset Infinity","id":359}
+{"name":"NPO Start","id":360}
+{"name":"TCM","id":361}
+{"name":"TNT","id":363}
+{"name":"IndieFlix","id":368}
+{"name":"VOD Club","id":370}
+{"name":"Go3","id":373}
+{"name":"Hotstar Disney+","id":377}
+{"name":"BritBox","id":380}
+{"name":"Canal+","id":381}
+{"name":"TV 2","id":383}
+{"name":"HBO Max","id":384}
+{"name":"BINGE","id":385}
+{"name":"Peacock","id":386}
+{"name":"Peacock Premium","id":387}
+{"name":"Sooner","id":389}
+{"name":"Disney Plus","id":390}
+{"name":"wedotv","id":392}
+{"name":"FlixOlé","id":393}
+{"name":"TVNZ","id":395}
+{"name":"Film1","id":396}
+{"name":"BBC America","id":397}
+{"name":"VVVVID","id":414}
+{"name":"Anime Digital Networks","id":415}
+{"name":"Here TV","id":417}
+{"name":"Joyn Plus","id":421}
+{"name":"Blockbuster","id":423}
+{"name":"HBO Go","id":425}
+{"name":"SF Anytime","id":426}
+{"name":"CONtv","id":428}
+{"name":"Telstra TV","id":429}
+{"name":"HiDive","id":430}
+{"name":"TV 2 Play","id":431}
+{"name":"Flix Premiere","id":432}
+{"name":"OVID","id":433}
+{"name":"OzFlix","id":434}
+{"name":"Draken Films","id":435}
+{"name":"Fetch TV","id":436}
+{"name":"Hungama Play","id":437}
+{"name":"Chai Flicks","id":438}
+{"name":"Shout! Factory TV","id":439}
+{"name":"ThreeNow","id":440}
+{"name":"NFB","id":441}
+{"name":"NRK TV","id":442}
+{"name":"Filmstriben","id":443}
+{"name":"Dekkoo","id":444}
+{"name":"Classix","id":445}
+{"name":"Retrocrush","id":446}
+{"name":"Belas Artes à La Carte","id":447}
+{"name":"Beamafilm","id":448}
+{"name":"Global TV","id":449}
+{"name":"Vodacom Video Play","id":450}
+{"name":"Picl","id":451}
+{"name":"RTPplay","id":452}
+{"name":"Topic","id":454}
+{"name":"Night Flight Plus","id":455}
+{"name":"Mitele ","id":456}
+{"name":"VIX ","id":457}
+{"name":"Horrify","id":460}
+{"name":"RTBF","id":461}
+{"name":"Kirjastokino","id":463}
+{"name":"Kocowa","id":464}
+{"name":"Believe","id":465}
+{"name":"Bioskop Online","id":466}
+{"name":"DIRECTV GO","id":467}
+{"name":"genflix","id":468}
+{"name":"Club Illico","id":469}
+{"name":"The Film Detective","id":470}
+{"name":"FILMRISE","id":471}
+{"name":"NLZIET","id":472}
+{"name":"Revry","id":473}
+{"name":"ShemarooMe","id":474}
+{"name":"DOCSVILLE","id":475}
+{"name":"EPIC ON","id":476}
+{"name":"GOSPEL PLAY","id":477}
+{"name":"History Play","id":478}
+{"name":"Home of Horror","id":479}
+{"name":"Filmtastic","id":480}
+{"name":"ArthouseCNMA","id":481}
+{"name":"ManoramaMax","id":482}
+{"name":"MAX Stream","id":483}
+{"name":"NOW","id":484}
+{"name":"Spectrum On Demand","id":486}
+{"name":"tvo","id":488}
+{"name":"Vidio","id":489}
+{"name":"CINE","id":491}
+{"name":"SVT","id":493}
+{"name":"Cineasterna","id":496}
+{"name":"Tele2 Play","id":497}
+{"name":"Oldflix","id":499}
+{"name":"TVF Play","id":500}
+{"name":"Wink","id":501}
+{"name":"Tata Play","id":502}
+{"name":"Hi-YAH","id":503}
+{"name":"VRV","id":504}
+{"name":"Player","id":505}
+{"name":"TBS","id":506}
+{"name":"tru TV","id":507}
+{"name":"Discovery Plus","id":510}
+{"name":"iWantTFC","id":511}
+{"name":"TNTGo","id":512}
+{"name":"Shadowz","id":513}
+{"name":"AsianCrush","id":514}
+{"name":"MX Player","id":515}
+{"name":"Noovo","id":516}
+{"name":"TriArt Play","id":517}
+{"name":"La Toile","id":518}
+{"name":"Discovery Plus","id":520}
+{"name":"Spamflix","id":521}
+{"name":"Popcorntimes","id":522}
+{"name":"Discovery Plus","id":524}
+{"name":"Knowledge Network","id":525}
+{"name":"AMC+","id":526}
+{"name":"AMC+ Amazon Channel","id":528}
+{"name":"ARROW","id":529}
+{"name":"Supo Mungam Plus","id":530}
+{"name":"Paramount Plus","id":531}
+{"name":"aha","id":532}
+{"name":"Amazon Arthaus Channel","id":533}
+{"name":"Argo","id":534}
+{"name":"digital TIFF Bell Lightbox","id":535}
+{"name":"Dogwoof On Demand","id":536}
+{"name":"ZDF","id":537}
+{"name":"Plex","id":538}
+{"name":"Viddla","id":539}
+{"name":"Elisa Viihde","id":540}
+{"name":"rtve","id":541}
+{"name":"filmfriend","id":542}
+{"name":"CONTAR","id":543}
+{"name":"Libreflix","id":544}
+{"name":"Spuul","id":545}
+{"name":"WOW Presents Plus","id":546}
+{"name":"Alamo on Demand","id":547}
+{"name":"IFFR Unleashed","id":548}
+{"name":"IPLA","id":549}
+{"name":"Tenk","id":550}
+{"name":"Magellan TV","id":551}
+{"name":"QFT Player","id":552}
+{"name":"Telia Play","id":553}
+{"name":"BroadwayHD","id":554}
+{"name":"tvzavr","id":556}
+{"name":"More TV","id":557}
+{"name":"Cinépolis KLIC","id":558}
+{"name":"Filmzie","id":559}
+{"name":"Filmoteket","id":560}
+{"name":"Lionsgate Play","id":561}
+{"name":"MovieSaints","id":562}
+{"name":"KPN","id":563}
+{"name":"SALTO","id":564}
+{"name":"Filme Filme","id":566}
+{"name":"True Story","id":567}
+{"name":"DocAlliance Films","id":569}
+{"name":"Premier","id":570}
+{"name":"RTL Play","id":572}
+{"name":"KinoPop","id":573}
+{"name":"Oi Play","id":574}
+{"name":"KoreaOnDemand","id":575}
+{"name":"Klik Film","id":576}
+{"name":"TvIgle","id":577}
+{"name":"Strim","id":578}
+{"name":"Film Movement Plus","id":579}
+{"name":"Nova Play","id":580}
+{"name":"iQIYI","id":581}
+{"name":"Paramount+ Amazon Channel","id":582}
+{"name":"MGM Plus Amazon Channel","id":583}
+{"name":"Discovery Plus Amazon Channel","id":584}
+{"name":"Metrograph","id":585}
+{"name":"IFC Amazon Channel","id":587}
+{"name":"MGM Amazon Channel","id":588}
+{"name":"TELETOON+ Amazon Channel","id":589}
+{"name":"Now TV Cinema","id":591}
+{"name":"STV Player","id":593}
+{"name":"Virgin TV Go","id":594}
+{"name":"Eros Now Amazon Channel","id":595}
+{"name":"Arrow Video Amazon Channel","id":596}
+{"name":"Full Moon Amazon Channel","id":597}
+{"name":"Pokémon Amazon Channel","id":599}
+{"name":"Shout! Factory Amazon Channel","id":600}
+{"name":"MotorTrend Amazon Channel","id":601}
+{"name":"FilmBox Live Amazon Channel","id":602}
+{"name":"CuriosityStream Amazon Channel","id":603}
+{"name":"DocuBay Amazon Channel","id":604}
+{"name":"Super Channel Amazon Channel","id":605}
+{"name":"StackTV Amazon Channel","id":606}
+{"name":"OUTtv Amazon Channel","id":607}
+{"name":"Love Nature Amazon Channel","id":608}
+{"name":"Smithsonian Channel Amazon Channel","id":609}
+{"name":"BBC Earth Amazon Channel","id":610}
+{"name":"UMC Amazon Channel","id":612}
+{"name":"Freevee Amazon Channel","id":613}
+{"name":"VI movies and tv","id":614}
+{"name":"W4free","id":615}
+{"name":"HBO Max Free","id":616}
+{"name":"Curia","id":617}
+{"name":"Paus","id":618}
+{"name":"Star Plus","id":619}
+{"name":"DRTV","id":620}
+{"name":"Dansk Filmskat","id":621}
+{"name":"UPC TV","id":622}
+{"name":"WeTV","id":623}
+{"name":"KKTV","id":624}
+{"name":"LINE TV","id":625}
+{"name":"Otta","id":626}
+{"name":"Voyo","id":627}
+{"name":"Edisonline","id":628}
+{"name":"OSN","id":629}
+{"name":"STARZPLAY","id":630}
+{"name":"HRTi","id":631}
+{"name":"Showtime Roku Premium Channel","id":632}
+{"name":"Paramount+ Roku Premium Channel","id":633}
+{"name":"Starz Roku Premium Channel","id":634}
+{"name":"AMC+ Roku Premium Channel","id":635}
+{"name":"MGM Plus Roku Premium Channel","id":636}
+{"name":"Pickbox NOW","id":637}
+{"name":"Public Domain Movies","id":638}
+{"name":"CineMember","id":639}
+{"name":"Kino Now","id":640}
+{"name":"Nexo Plus","id":641}
+{"name":"STUDIOCANAL PRESENTS Apple TV Channel","id":642}
+{"name":"Eventive","id":677}
+{"name":"Filmlegenden Amazon Channel","id":678}
+{"name":"Cinema of Hearts Amazon Channel","id":679}
+{"name":"Bloody Movies Amazon Channel","id":680}
+{"name":"Film Total Amazon Channel","id":681}
+{"name":"Looke Amazon Channel","id":683}
+{"name":"FlixOlé Amazon Channel","id":684}
+{"name":"OCS Amazon Channel ","id":685}
+{"name":"Home of Horror Amazon Channel","id":686}
+{"name":"Arthouse CNMA Amazon Channel","id":687}
+{"name":"ShortsTV Amazon Channel","id":688}
+{"name":"TVCortos Amazon Channel","id":689}
+{"name":"Pongalo Amazon Channel  ","id":690}
+{"name":"Play Suisse","id":691}
+{"name":"Cultpix","id":692}
+{"name":"Turk On Video Amazon Channel","id":693}
+{"name":"meJane","id":697}
+{"name":"FilmBox+","id":701}
+{"name":"iBAKATV","id":702}
+{"name":"IROKOTV","id":704}
+{"name":"Hollywood Suite Amazon Channel","id":705}
+{"name":"Moviedome Plus Amazon Channel","id":706}
+{"name":"Aniverse Amazon Channel","id":707}
+{"name":"Superfresh Amazon Channel","id":708}
+{"name":"Comedy Central Plus Amazon Channel","id":1706}
+{"name":"BluTV Amazon Channel","id":1707}
+{"name":"GRJNGO Amazon Channel","id":1709}
+{"name":"MTV Plus Amazon Channel","id":1711}
+{"name":"RTL Passion Amazon Channel","id":1712}
+{"name":"Silverline Amazon Channel","id":1713}
+{"name":"Sony AXN Amazon Channel","id":1714}
+{"name":"Shahid VIP","id":1715}
+{"name":"Acontra Plus","id":1717}
+{"name":"AVA VOBB","id":1722}
+{"name":"AVA HBZ","id":1723}
+{"name":"AVA CSAL","id":1724}
+{"name":"AVA BGB","id":1725}
+{"name":"Infinity Selection Amazon Channel","id":1726}
+{"name":"CG Collection Amazon channel","id":1727}
+{"name":"iWonder Full Amazon channel","id":1728}
+{"name":"Full Action Amazon Channel","id":1729}
+{"name":"Cine Comico Amazon Channel","id":1730}
+{"name":"Salto Amazon Channel","id":1731}
+{"name":"Universcine Amazon Channel","id":1732}
+{"name":"Action Max Amazon Channel","id":1733}
+{"name":"Filmo Amazon Channel","id":1734}
+{"name":"Insomnia Amazon Channel","id":1735}
+{"name":"Shadowz Amazon Channel","id":1736}
+{"name":"INA  madelen Amazon Channel","id":1737}
+{"name":"Benshi Amazon Channel","id":1738}
+{"name":"Planet Horror Amazon Channel","id":1740}
+{"name":"Dizi Amazon Channel","id":1741}
+{"name":"Acontra Plus Amazon Channel","id":1742}
+{"name":"Historia y Actualidad Amazon Channel","id":1743}
+{"name":"Icon Film Amazon Channel","id":1744}
+{"name":"Curzon Amazon Channel","id":1745}
+{"name":"Hallmark TV Amazon Channel","id":1746}
+{"name":"Studiocanal Presents Amazon Channel","id":1747}
+{"name":"TOD","id":1750}
+{"name":"filmingo","id":1756}
+{"name":"Realeyz Amazon Channel","id":1757}
+{"name":"Bet+","id":1759}
+{"name":"Yorck on Demand","id":1764}
+{"name":"ESPN Plus","id":1768}
+{"name":"Paramount+ Showtime","id":1770}
+{"name":"Takflix","id":1771}
+{"name":"SkyShowtime","id":1773}
+{"name":"Love and Passion Amazon Channel","id":1788}
+{"name":"Lionsgate Plus","id":1790}
+{"name":"Klassiki","id":1793}
+{"name":"Starz Amazon Channel","id":1794}
+{"name":"Netflix basic with Ads","id":1796}
+{"name":"Studiocanal Presents MOVIECULT Amazon Channel","id":1805}
+{"name":"Studiocanal Presents ALLSTARS Amazon Channel","id":1806}
+{"name":"Cohen Media Amazon Channel","id":1811}
+{"name":"HBO Max Amazon Channel","id":1825}
+{"name":"Behind the Tree","id":1829}
+{"name":"Popflick","id":1832}
+{"name":"Apple iTunes","id":2}
+{"name":"Google Play Movies","id":3}
+{"name":"Vudu","id":7}
+{"name":"Netflix","id":8}
+{"name":"Amazon Prime Video","id":9}
+{"name":"Amazon Video","id":10}
+{"name":"MUBI","id":11}
+{"name":"Crackle","id":12}
+{"name":"Hulu","id":15}
+{"name":"NetMovies","id":19}
+{"name":"maxdome Store","id":20}
+{"name":"Stan","id":21}
+{"name":"Quickflix Store","id":24}
+{"name":"HBO Now","id":27}
+{"name":"Sky Go","id":29}
+{"name":"WOW","id":30}
+{"name":"HBO Go","id":31}
+{"name":"MGM Plus","id":34}
+{"name":"Rakuten TV","id":35}
+{"name":"Showtime","id":37}
+{"name":"BBC iPlayer","id":38}
+{"name":"Now TV","id":39}
+{"name":"Chili","id":40}
+{"name":"ITVX","id":41}
+{"name":"Starz","id":43}
+{"name":"Looke","id":47}
+{"name":"ShowMax","id":55}
+{"name":"OCS Go","id":56}
+{"name":"Canal VOD","id":58}
+{"name":"Bbox VOD","id":59}
+{"name":"Orange VOD","id":61}
+{"name":"Atres Player","id":62}
+{"name":"Filmin","id":63}
+{"name":"Filmin Latino","id":66}
+{"name":"Blim","id":67}
+{"name":"Microsoft Store","id":68}
+{"name":"Videoland","id":72}
+{"name":"Tubi TV","id":73}
+{"name":"Viaplay","id":76}
+{"name":"C More","id":77}
+{"name":"CBS","id":78}
+{"name":"NBC","id":79}
+{"name":"AMC","id":80}
+{"name":"tenplay","id":82}
+{"name":"The CW","id":83}
+{"name":"U-NEXT","id":84}
+{"name":"Acorn TV","id":87}
+{"name":"Kividoo","id":89}
+{"name":"Naver Store","id":96}
+{"name":"Watcha","id":97}
+{"name":"Shudder","id":99}
+{"name":"All 4","id":103}
+{"name":"Timvision","id":109}
+{"name":"Infinity+","id":110}
+{"name":"Ivi","id":113}
+{"name":"Okko","id":115}
+{"name":"Amediateka","id":116}
+{"name":"Kinopoisk","id":117}
+{"name":"HBO","id":118}
+{"name":"Amazon Prime Video","id":119}
+{"name":"Voot","id":121}
+{"name":"Hotstar","id":122}
+{"name":"FXNow","id":123}
+{"name":"Sky Store","id":130}
+{"name":"SBS On Demand","id":132}
+{"name":"Videobuster","id":133}
+{"name":"Foxtel Now","id":134}
+{"name":"ABC iview","id":135}
+{"name":"UKTV Play","id":137}
+{"name":"Cineplex","id":140}
+{"name":"Flimmit","id":142}
+{"name":"Sundance Now","id":143}
+{"name":"MyTF1vod","id":145}
+{"name":"iciTouTV","id":146}
+{"name":"Sixplay","id":147}
+{"name":"ABC","id":148}
+{"name":"Movistar Plus","id":149}
+{"name":"blue TV","id":150}
+{"name":"BritBox","id":151}
+{"name":"History","id":155}
+{"name":"A&E","id":156}
+{"name":"Lifetime","id":157}
+{"name":"Viu","id":158}
+{"name":"Catchplay","id":159}
+{"name":"iflix","id":160}
+{"name":"Hollystar","id":164}
+{"name":"Claro video","id":167}
+{"name":"Watchbox","id":171}
+{"name":"Netflix Kids","id":175}
+{"name":"Pantaflix","id":177}
+{"name":"MagentaTV","id":178}
+{"name":"Hollywood Suite","id":182}
+{"name":"Screambox","id":185}
+{"name":"YouTube Premium","id":188}
+{"name":"Curiosity Stream","id":190}
+{"name":"Kanopy","id":191}
+{"name":"YouTube","id":192}
+{"name":"SFR Play","id":193}
+{"name":"Starz Play Amazon Channel","id":194}
+{"name":"Animax Plus Amazon Channel","id":195}
+{"name":"AcornTV Amazon Channel","id":196}
+{"name":"BritBox Amazon Channel","id":197}
+{"name":"CBS All Access Amazon Channel","id":198}
+{"name":"Fandor Amazon Channel","id":199}
+{"name":"MUBI Amazon Channel","id":201}
+{"name":"Screambox Amazon Channel","id":202}
+{"name":"Showtime Amazon Channel","id":203}
+{"name":"Shudder Amazon Channel","id":204}
+{"name":"Sundance Now Amazon Channel","id":205}
+{"name":"CW Seed","id":206}
+{"name":"The Roku Channel","id":207}
+{"name":"PBS","id":209}
+{"name":"Sky","id":210}
+{"name":"Freeform","id":211}
+{"name":"Hoopla","id":212}
+{"name":"Syfy","id":215}
+{"name":"Eros Now","id":218}
+{"name":"Das Erste Mediathek","id":219}
+{"name":"Jio Cinema","id":220}
+{"name":"Rai Play","id":222}
+{"name":"Hayu","id":223}
+{"name":"Crave","id":230}
+{"name":"Zee5","id":232}
+{"name":"Arte","id":234}
+{"name":"France TV","id":236}
+{"name":"Sony Liv","id":237}
+{"name":"Popcornflix","id":241}
+{"name":"Comedy Central","id":243}
+{"name":"VOD Poland","id":245}
+{"name":"7plus","id":246}
+{"name":"Pantaya","id":247}
+{"name":"Boomerang","id":248}
+{"name":"Horizon","id":250}
+{"name":"Urban Movie Channel","id":251}
+{"name":"Dove Channel","id":254}
+{"name":"Yupp TV","id":255}
+{"name":"fuboTV","id":257}
+{"name":"Magnolia Selects","id":259}
+{"name":"WWE Network","id":260}
+{"name":"Nickhits Amazon Channel","id":261}
+{"name":"Noggin Amazon Channel","id":262}
+{"name":"DreamWorksTV Amazon Channel","id":263}
+{"name":"MyOutdoorTV","id":264}
+{"name":"Hopster TV","id":267}
+{"name":"Funimation Now","id":269}
+{"name":"Neon TV","id":273}
+{"name":"Laugh Out Loud","id":275}
+{"name":"Smithsonian Channel","id":276}
+{"name":"Pure Flix","id":278}
+{"name":"Redbox","id":279}
+{"name":"Hallmark Movies","id":281}
+{"name":"Crunchyroll","id":283}
+{"name":"BBC Player Amazon Channel","id":285}
+{"name":"ZDF Herzkino Amazon Channel","id":286}
+{"name":"Boomerang Amazon Channel","id":288}
+{"name":"Cinemax Amazon Channel","id":289}
+{"name":"Hallmark Movies Now Amazon Channel","id":290}
+{"name":"MZ Choice Amazon Channel","id":291}
+{"name":"Pantaya Amazon Channel","id":292}
+{"name":"PBS Kids Amazon Channel","id":293}
+{"name":"PBS Masterpiece Amazon Channel","id":294}
+{"name":"Viewster Amazon Channel","id":295}
+{"name":"Hayu Amazon Channel","id":296}
+{"name":"Ziggo TV","id":297}
+{"name":"RTL+","id":298}
+{"name":"Sling TV Orange and Blue","id":299}
+{"name":"Pluto TV","id":300}
+{"name":"Joyn","id":304}
+{"name":"Crave Starz","id":305}
+{"name":"Globoplay","id":307}
+{"name":"O2 TV","id":308}
+{"name":"Sun Nxt","id":309}
+{"name":"Be TV Go","id":311}
+{"name":"VRT MAX","id":312}
+{"name":"Yelo Play","id":313}
+{"name":"CBC Gem","id":314}
+{"name":"Hoichoi","id":315}
+{"name":"Cartoon Network","id":317}
+{"name":"Adult Swim","id":318}
+{"name":"Alt Balaji","id":319}
+{"name":"Sky X","id":321}
+{"name":"USA Network","id":322}
+{"name":"Yle Areena","id":323}
+{"name":"CTV","id":326}
+{"name":"Fox","id":328}
+{"name":"FlixFling","id":331}
+{"name":"VUDU Free","id":332}
+{"name":"My5","id":333}
+{"name":"Filmtastic Amazon Channel","id":334}
+{"name":"Disney Plus","id":337}
+{"name":"Ruutu","id":338}
+{"name":"Movistar Play","id":339}
+{"name":"blutv","id":341}
+{"name":"puhutv","id":342}
+{"name":"Bet+ Amazon Channel","id":343}
+{"name":"Rakuten Viki","id":344}
+{"name":"Canal+ Séries","id":345}
+{"name":"FXNow Canada","id":348}
+{"name":"Apple TV Plus","id":350}
+{"name":"WAKANIM","id":354}
+{"name":"Darkmatter TV","id":355}
+{"name":"wavve","id":356}
+{"name":"DocPlay","id":357}
+{"name":"DIRECTV","id":358}
+{"name":"Mediaset Infinity","id":359}
+{"name":"NPO Start","id":360}
+{"name":"TNT","id":363}
+{"name":"Bravo TV","id":365}
+{"name":"Food Network","id":366}
+{"name":"IndieFlix","id":368}
+{"name":"Go3","id":373}
+{"name":"Hotstar Disney+","id":377}
+{"name":"9Now","id":378}
+{"name":"BritBox","id":380}
+{"name":"Canal+","id":381}
+{"name":"TV 2","id":383}
+{"name":"HBO Max","id":384}
+{"name":"BINGE","id":385}
+{"name":"Peacock","id":386}
+{"name":"Peacock Premium","id":387}
+{"name":"Sooner","id":389}
+{"name":"Disney Plus","id":390}
+{"name":"wedotv","id":392}
+{"name":"FlixOlé","id":393}
+{"name":"TVNZ","id":395}
+{"name":"BBC America","id":397}
+{"name":"AHCTV","id":398}
+{"name":"Animal Planet","id":399}
+{"name":"Cooking Channel","id":400}
+{"name":"Destination America","id":402}
+{"name":"Discovery","id":403}
+{"name":"Discovery Life","id":404}
+{"name":"DIY Network","id":405}
+{"name":"HGTV","id":406}
+{"name":"Investigation Discovery","id":408}
+{"name":"Motor Trend","id":410}
+{"name":"Science Channel","id":411}
+{"name":"TLC","id":412}
+{"name":"Travel Channel","id":413}
+{"name":"VVVVID","id":414}
+{"name":"Anime Digital Networks","id":415}
+{"name":"Here TV","id":417}
+{"name":"Paramount Network","id":418}
+{"name":"TV Land","id":419}
+{"name":"Logo TV","id":420}
+{"name":"Joyn Plus","id":421}
+{"name":"VH1","id":422}
+{"name":"Blockbuster","id":423}
+{"name":"HBO Go","id":425}
+{"name":"SF Anytime","id":426}
+{"name":"Mhz Choice","id":427}
+{"name":"CONtv","id":428}
+{"name":"Telstra TV","id":429}
+{"name":"HiDive","id":430}
+{"name":"TV 2 Play","id":431}
+{"name":"OzFlix","id":434}
+{"name":"Fetch TV","id":436}
+{"name":"Hungama Play","id":437}
+{"name":"Chai Flicks","id":438}
+{"name":"Shout! Factory TV","id":439}
+{"name":"ThreeNow","id":440}
+{"name":"NRK TV","id":442}
+{"name":"Filmstriben","id":443}
+{"name":"Dekkoo","id":444}
+{"name":"Classix","id":445}
+{"name":"Retrocrush","id":446}
+{"name":"Global TV","id":449}
+{"name":"RTPplay","id":452}
+{"name":"MTV","id":453}
+{"name":"Topic","id":454}
+{"name":"Mitele ","id":456}
+{"name":"VIX ","id":457}
+{"name":"Vice TV ","id":458}
+{"name":"Netflix Free","id":459}
+{"name":"RTBF","id":461}
+{"name":"Kirjastokino","id":463}
+{"name":"Kocowa","id":464}
+{"name":"DIRECTV GO","id":467}
+{"name":"genflix","id":468}
+{"name":"Club Illico","id":469}
+{"name":"FILMRISE","id":471}
+{"name":"NLZIET","id":472}
+{"name":"Revry","id":473}
+{"name":"DOCSVILLE","id":475}
+{"name":"EPIC ON","id":476}
+{"name":"History Play","id":478}
+{"name":"Home of Horror","id":479}
+{"name":"Filmtastic","id":480}
+{"name":"ManoramaMax","id":482}
+{"name":"MAX Stream","id":483}
+{"name":"NOW","id":484}
+{"name":"Rooster Teeth","id":485}
+{"name":"Spectrum On Demand","id":486}
+{"name":"OXYGEN","id":487}
+{"name":"tvo","id":488}
+{"name":"Vidio","id":489}
+{"name":"Arte1 Play ","id":490}
+{"name":"CINE","id":491}
+{"name":"ILLICO","id":492}
+{"name":"SVT","id":493}
+{"name":"Cineasterna","id":496}
+{"name":"Tele2 Play","id":497}
+{"name":"South Park","id":498}
+{"name":"TVF Play","id":500}
+{"name":"Wink","id":501}
+{"name":"Tata Play","id":502}
+{"name":"VRV","id":504}
+{"name":"Player","id":505}
+{"name":"TBS","id":506}
+{"name":"tru TV","id":507}
+{"name":"DisneyNOW","id":508}
+{"name":"WeTV","id":509}
+{"name":"Discovery Plus","id":510}
+{"name":"iWantTFC","id":511}
+{"name":"TNTGo","id":512}
+{"name":"AsianCrush","id":514}
+{"name":"MX Player","id":515}
+{"name":"Noovo","id":516}
+{"name":"Discovery Plus","id":520}
+{"name":"Discovery Plus","id":524}
+{"name":"Knowledge Network","id":525}
+{"name":"AMC+","id":526}
+{"name":"AMC+ Amazon Channel","id":528}
+{"name":"ARROW","id":529}
+{"name":"Paramount Plus","id":531}
+{"name":"aha","id":532}
+{"name":"Amazon Arthaus Channel","id":533}
+{"name":"ZDF","id":537}
+{"name":"Plex","id":538}
+{"name":"Elisa Viihde","id":540}
+{"name":"rtve","id":541}
+{"name":"filmfriend","id":542}
+{"name":"CONTAR","id":543}
+{"name":"Libreflix","id":544}
+{"name":"WOW Presents Plus","id":546}
+{"name":"IPLA","id":549}
+{"name":"Magellan TV","id":551}
+{"name":"Telia Play","id":553}
+{"name":"BroadwayHD","id":554}
+{"name":"The Oprah Winfrey Network","id":555}
+{"name":"tvzavr","id":556}
+{"name":"More TV","id":557}
+{"name":"Cinépolis KLIC","id":558}
+{"name":"Lionsgate Play","id":561}
+{"name":"KPN","id":563}
+{"name":"SALTO","id":564}
+{"name":"Premier","id":570}
+{"name":"British Pathé TV","id":571}
+{"name":"RTL Play","id":572}
+{"name":"KinoPop","id":573}
+{"name":"Oi Play","id":574}
+{"name":"TvIgle","id":577}
+{"name":"Strim","id":578}
+{"name":"Nova Play","id":580}
+{"name":"iQIYI","id":581}
+{"name":"Paramount+ Amazon Channel","id":582}
+{"name":"MGM Plus Amazon Channel","id":583}
+{"name":"Discovery Plus Amazon Channel","id":584}
+{"name":"MGM Amazon Channel","id":588}
+{"name":"TELETOON+ Amazon Channel","id":589}
+{"name":"STV Player","id":593}
+{"name":"Virgin TV Go","id":594}
+{"name":"Eros Now Amazon Channel","id":595}
+{"name":"ITV Amazon Channel","id":598}
+{"name":"Pokémon Amazon Channel","id":599}
+{"name":"Shout! Factory Amazon Channel","id":600}
+{"name":"MotorTrend Amazon Channel","id":601}
+{"name":"FilmBox Live Amazon Channel","id":602}
+{"name":"CuriosityStream Amazon Channel","id":603}
+{"name":"DocuBay Amazon Channel","id":604}
+{"name":"Super Channel Amazon Channel","id":605}
+{"name":"StackTV Amazon Channel","id":606}
+{"name":"OUTtv Amazon Channel","id":607}
+{"name":"Love Nature Amazon Channel","id":608}
+{"name":"Smithsonian Channel Amazon Channel","id":609}
+{"name":"BBC Earth Amazon Channel","id":610}
+{"name":"The Great Courses Signature Collection Amazon Channel","id":611}
+{"name":"UMC Amazon Channel","id":612}
+{"name":"Freevee Amazon Channel","id":613}
+{"name":"VI movies and tv","id":614}
+{"name":"W4free","id":615}
+{"name":"HBO Max Free","id":616}
+{"name":"Star Plus","id":619}
+{"name":"DRTV","id":620}
+{"name":"UPC TV","id":622}
+{"name":"WeTV","id":623}
+{"name":"KKTV","id":624}
+{"name":"LINE TV","id":625}
+{"name":"Otta","id":626}
+{"name":"Voyo","id":627}
+{"name":"OSN","id":629}
+{"name":"STARZPLAY","id":630}
+{"name":"HRTi","id":631}
+{"name":"Showtime Roku Premium Channel","id":632}
+{"name":"Paramount+ Roku Premium Channel","id":633}
+{"name":"Starz Roku Premium Channel","id":634}
+{"name":"AMC+ Roku Premium Channel","id":635}
+{"name":"MGM Plus Roku Premium Channel","id":636}
+{"name":"Pickbox NOW","id":637}
+{"name":"STUDIOCANAL PRESENTS Apple TV Channel","id":642}
+{"name":"Bloody Movies Amazon Channel","id":680}
+{"name":"Film Total Amazon Channel","id":681}
+{"name":"Looke Amazon Channel","id":683}
+{"name":"FlixOlé Amazon Channel","id":684}
+{"name":"OCS Amazon Channel ","id":685}
+{"name":"Home of Horror Amazon Channel","id":686}
+{"name":"Pongalo Amazon Channel  ","id":690}
+{"name":"Play Suisse","id":691}
+{"name":"Cultpix","id":692}
+{"name":"Turk On Video Amazon Channel","id":693}
+{"name":"Serially","id":696}
+{"name":"FilmBox+","id":701}
+{"name":"IROKOTV","id":704}
+{"name":"Hollywood Suite Amazon Channel","id":705}
+{"name":"Moviedome Plus Amazon Channel","id":706}
+{"name":"Aniverse Amazon Channel","id":707}
+{"name":"Superfresh Amazon Channel","id":708}
+{"name":"Comedy Central Plus Amazon Channel","id":1706}
+{"name":"BluTV Amazon Channel","id":1707}
+{"name":"Discovery Amazon Channel","id":1708}
+{"name":"HistoryPlay Amazon Channel","id":1710}
+{"name":"MTV Plus Amazon Channel","id":1711}
+{"name":"RTL Passion Amazon Channel","id":1712}
+{"name":"Sony AXN Amazon Channel","id":1714}
+{"name":"Shahid VIP","id":1715}
+{"name":"Infinity Selection Amazon Channel","id":1726}
+{"name":"iWonder Full Amazon channel","id":1728}
+{"name":"Full Action Amazon Channel","id":1729}
+{"name":"Salto Amazon Channel","id":1731}
+{"name":"Universcine Amazon Channel","id":1732}
+{"name":"Action Max Amazon Channel","id":1733}
+{"name":"INA  madelen Amazon Channel","id":1737}
+{"name":"Benshi Amazon Channel","id":1738}
+{"name":"Pash Amazon Channel","id":1739}
+{"name":"Dizi Amazon Channel","id":1741}
+{"name":"Acontra Plus Amazon Channel","id":1742}
+{"name":"Historia y Actualidad Amazon Channel","id":1743}
+{"name":"Icon Film Amazon Channel","id":1744}
+{"name":"Hallmark TV Amazon Channel","id":1746}
+{"name":"Studiocanal Presents Amazon Channel","id":1747}
+{"name":"TOD","id":1750}
+{"name":"Realeyz Amazon Channel","id":1757}
+{"name":"Bet+","id":1759}
+{"name":"Paramount+ Showtime","id":1770}
+{"name":"SkyShowtime","id":1773}
+{"name":"Lionsgate Plus","id":1790}
+{"name":"Starz Amazon Channel","id":1794}
+{"name":"Netflix basic with Ads","id":1796}
+{"name":"Studiocanal Presents ALLSTARS Amazon Channel","id":1806}
+{"name":"Cohen Media Amazon Channel","id":1811}
+{"name":"HBO Max Amazon Channel","id":1825}
+{"name":"Discovery Plus","id":1836}

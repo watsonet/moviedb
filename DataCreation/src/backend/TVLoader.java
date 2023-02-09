@@ -10,7 +10,7 @@ public class TVLoader {
 
 	public static void main(String[] args) {
 		ObjectCreator oc = new ObjectCreator();
-		oc.createTVShows();
+		//oc.createTVShows();
 		addToDB();
 	}
 	private static int addToDB() {

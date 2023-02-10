@@ -1,6 +1,9 @@
 import java.sql.CallableStatement;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -56,7 +59,7 @@ public class TVShowService {
 				
 				
 				cs = dbService.getConnection().prepareCall("{? = call addShow(?, ?, ?, ?)}");
-				cs.setLong(2, show.ID);
+				cs.setLong(2, (long) show.ID);
 				cs.setLong(3,  (long) show.numSeasons);
 				cs.setLong(4,  (long) show.numEpisodes);
 				cs.setString(5, show.lastEpDate);	//unsure if correct data type
@@ -66,18 +69,18 @@ public class TVShowService {
 				
 				cs.execute();
 				returnValue = cs.getInt(1);
-//				if(returnValue == 1) {
-//					JOptionPane.showMessageDialog(null, "ID can not be null");
-//				}
-//				if(returnValue == 2) {
-//					JOptionPane.showMessageDialog(null, "ID " + show.ID + " does not exist in Media table");
-//				}
-//				if(returnValue == 3) {
-//					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Show table");
-//				}
-//				if(returnValue == 4) {
-//					JOptionPane.showMessageDialog(null, "Runtime can not be null");
-//				}
+				if(returnValue == 1) {
+					JOptionPane.showMessageDialog(null, "ID can not be null");
+				}
+				if(returnValue == 2) {
+					JOptionPane.showMessageDialog(null, "ID " + show.ID + " does not exist in Media table");
+				}
+				if(returnValue == 3) {
+					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Show table");
+				}
+				if(returnValue == 4) {
+					JOptionPane.showMessageDialog(null, "Runtime can not be null");
+				}
 				
 				cs = dbService.getConnection().prepareCall("{? = call addActedIn(?, ?)}");
 				cs.setLong(3,  show.ID);

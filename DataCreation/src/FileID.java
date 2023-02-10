@@ -91,9 +91,9 @@ public class FileID {
 			String title = (String) original.get("title");
 			Double rating = (Double) original.get("rating");
 			String releaseDate = (String) original.get("releaseDate");
+			String lastEpDate = (String) original.get("lastEpDate");
 			Long numSeasons = (Long) original.get("numSeasons");
 			Long numEpisodes = (Long) original.get("numEpisodes");
-			String lastEpDate = (String) original.get("lastEpDate");
 
 			JSONArray jproviders = (JSONArray) original.get("providers");
 			ArrayList<Long> providers = new ArrayList<Long>();

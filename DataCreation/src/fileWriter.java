@@ -22,7 +22,7 @@ public class fileWriter {
 		movieJSON.put("id", movie.ID);
 		
 		try {
-			file = new BufferedWriter(new FileWriter("../DataCreation/outputMovies.txt"));
+			file = new BufferedWriter(new FileWriter("../DataCreation/outputMovies.txt",true));
             file.write(movieJSON.toJSONString());
             file.newLine();
             file.flush();
@@ -41,12 +41,13 @@ public class fileWriter {
 		tvJSON.put("numSeasons", tv.numSeasons);
 		tvJSON.put("numEpisodes", tv.numEpisodes);
 		tvJSON.put("releaseDate", tv.releaseDate);
+		tvJSON.put("lastEpDate", tv.lastEpDate);
 		tvJSON.put("rating", (double)tv.rating);
 		tvJSON.put("title", tv.title);
 		tvJSON.put("id", tv.ID);
 
 		try {
-			file = new BufferedWriter(new FileWriter("../DataCreation/outputTVShows.txt"));
+			file = new BufferedWriter(new FileWriter("../DataCreation/outputTVShows.txt",true));
             file.write(tvJSON.toJSONString());
             file.newLine();
             file.flush();
@@ -59,14 +60,13 @@ public class fileWriter {
 	
 	@SuppressWarnings("unchecked")
 	public int addActor(Actor actor) {
-		System.out.println("I'm working!");
 		JSONObject actorJSON = new JSONObject();
 		actorJSON.put("name", actor.name);
 		actorJSON.put("gender", actor.gender);
 		actorJSON.put("id", actor.ID);
 
 		try {
-			file = new BufferedWriter(new FileWriter("../DataCreation/outputActors.txt"));
+			file = new BufferedWriter(new FileWriter("../DataCreation/outputActors.txt",true));
             file.write(actorJSON.toJSONString());
             file.newLine();
             file.flush();
@@ -83,7 +83,7 @@ public class fileWriter {
 		serviceJSON.put("name", service.name);
 		serviceJSON.put("id", service.ID);
 		try {
-			file = new BufferedWriter(new FileWriter("../DataCreation/outputServices.txt"));
+			file = new BufferedWriter(new FileWriter("../DataCreation/outputServices.txt",true));
             file.write(serviceJSON.toJSONString());
             file.newLine();
             file.flush();

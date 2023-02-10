@@ -64,7 +64,6 @@ class ObjectCreator{
 			
 			try {
 				InputStream response = connection.getInputStream();
-				System.out.println("responded!");
 				JSONParser jsonParser = new JSONParser();
 				JSONObject extendedActorObject = (JSONObject)jsonParser.parse(new InputStreamReader(response, "UTF-8"));
 				toAdd.name = (String) extendedActorObject.get("name");
@@ -280,6 +279,7 @@ class ObjectCreator{
 				toAdd.title = (String) extendedTVObject.get("name");
 				toAdd.rating = (double) extendedTVObject.get("vote_average");
 				toAdd.releaseDate = (String) extendedTVObject.get("first_air_date");
+				toAdd.lastEpDate = (String) extendedTVObject.get("last_air_date");
 				toAdd.numSeasons = (Long) extendedTVObject.get("number_of_seasons");
 				toAdd.numEpisodes = (Long) extendedTVObject.get("number_of_episodes");
 				

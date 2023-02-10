@@ -6,7 +6,7 @@ import java.util.Properties;
 public class DataLoaderMain {
 
 	public static void main(String[] args) {
-		int files = createFiles();
+		//int files = createFiles();
 		
 		int add = addToDB();
 	}
@@ -14,7 +14,7 @@ public class DataLoaderMain {
 	private static int createFiles() {
 		ObjectCreator oc = new ObjectCreator();
 		//oc.createMovies();
-		oc.createActors();
+		//oc.createActors();
 		oc.createTVShows();
 		//oc.createStreamingServices();
 		return 0;
@@ -31,11 +31,11 @@ public class DataLoaderMain {
 			//StreamingServiceService serve = new StreamingServiceService(dbcs);
 			//ActorService act = new ActorService(dbcs);
 			TVShowService tv = new TVShowService(dbcs);
-			MovieService mov = new MovieService(dbcs);
+			//MovieService mov = new MovieService(dbcs);
 			//serve.addService();
 			//act.addActors();
 			tv.addTVShows();
-			mov.addMovies();
+			//mov.addMovies();
 			
 		} catch (IOException ex) {
             ex.printStackTrace();

@@ -90,8 +90,8 @@ public class LoginFrame {
 
 					loginFrame.dispose();
 
-					MainFrame mainFrame = new MainFrame();
-					mainFrame.createFrame(dbcs);
+					MainFrame mainFrame = new MainFrame(dbcs);
+					mainFrame.createFrame();
 				}
 			}
 		});
@@ -119,8 +119,8 @@ public class LoginFrame {
 					if (returnValue == 0) {
 						loginFrame.dispose();
 
-						MainFrame mainFrame = new MainFrame();
-						mainFrame.createFrame(dbcs);
+						MainFrame mainFrame = new MainFrame(dbcs);
+						mainFrame.createFrame();
 					}
 					if (returnValue == 1) {
 						loginLabel.setText("Username cannot be null");

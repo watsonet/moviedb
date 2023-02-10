@@ -9,9 +9,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 
 public abstract class Medias {
 	protected static Connection con;
@@ -23,7 +25,34 @@ public abstract class Medias {
 		Medias.con = con;
 	}
 	
-	public JPanel createPane() {
+	public JTabbedPane createPane() {
+		JTabbedPane mediaPane = new JTabbedPane();
+		
+		JPanel everythingPanel = createPanel(null);
+		JPanel servicePanel = createPanel(Type.HOSTED);
+		JPanel actorPanel = createPanel(Type.ACTED);
+		
+		mediaPane.add("Shows", everythingPanel);
+		mediaPane.add("Streaming services", servicePanel);
+		mediaPane.add("Actors/Actresses", actorPanel);
+		
+		return mediaPane;
+	}
+
+	/*
+	 * Keeping getMediaInfo for a few reasons
+	 * 
+	 * 1) Its useful for testing
+	 * 2) Can be used as a fallback
+	 * 3) Potentially use it as a basis for getMediaHostedInfo and future methods like that
+	 */
+	protected abstract String[][] getMediaInfo();
+	
+	protected abstract String[][] getMediaHostedInfo();
+	
+	protected abstract String[][] getMediaActedInfo();
+	
+	private JPanel createPanel(Type type) {
 		JPanel p1 = new JPanel();
 		p1.setLayout(new BorderLayout());
 
@@ -31,7 +60,14 @@ public abstract class Medias {
 		searchPanel.setLayout(new BoxLayout(searchPanel, BoxLayout.Y_AXIS));
 		JLabel text = new JLabel("Select search terms");
 
-		this.mediaList = getMediaInfo();
+		if (type == Type.ACTED) {
+			this.mediaList = getMediaActedInfo();
+		} else if (type == Type.HOSTED) {
+			this.mediaList = getMediaHostedInfo();
+		} else {
+			// ideally don't use this, but its there as a fallback and/or for testing
+			this.mediaList = getMediaInfo();			
+		}
 
 		JTable table = new JTable();
 		table.setModel(new DefaultTableModel(mediaList, columnNames));
@@ -39,9 +75,6 @@ public abstract class Medias {
 
 		JPanel searchOptionsPanel = new JPanel();
 		searchOptionsPanel.setLayout(new BoxLayout(searchOptionsPanel, BoxLayout.X_AXIS));
-
-		JPanel dropDownPanel = new JPanel();
-		searchOptionsPanel.add(dropDownPanel);
 
 		JPanel textFieldPanel = new JPanel();
 		createTextBoxes(textFieldPanel, table);
@@ -54,8 +87,6 @@ public abstract class Medias {
 		
 		return p1;
 	}
-
-	protected abstract String[][] getMediaInfo();
 	
 	protected void createTextBoxes(JPanel panel, JTable table) {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));

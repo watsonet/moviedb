@@ -21,7 +21,6 @@ public class UserData {
 		
 		JLabel currentUser = new JLabel("Your are currently logged in as " + this.username);
 		
-		
 		userPanel.add(currentUser);
 		
 		return userPanel;

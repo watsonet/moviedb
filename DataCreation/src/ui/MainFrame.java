@@ -21,11 +21,11 @@ public class MainFrame {
 
 		// Movies
 		Movies movies = new Movies(con);
-		JPanel moviePanel = movies.createPane();
+		JTabbedPane moviePanel = movies.createPane();
 
 		// TV Shows
 		Shows shows = new Shows(con);
-		JPanel showPanel = shows.createPane();
+		JTabbedPane showPanel = shows.createPane();
 
 		// User things
 		UserData userData = new UserData(con, dbcs.getUsername());

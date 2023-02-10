@@ -124,6 +124,7 @@ public class TVShowService {
 //					if(returnValue == 5) {
 //						JOptionPane.showMessageDialog(null, "Service-Media pair must be unique");
 //					}
+					
 				}
 				
 			}catch(SQLException e) {

@@ -89,6 +89,8 @@ public class LoginFrame {
 					}
 
 					loginFrame.dispose();
+					
+					Main.currentUser = getUsername();
 
 					MainFrame mainFrame = new MainFrame(dbcs);
 					mainFrame.createFrame();

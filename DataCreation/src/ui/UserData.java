@@ -12,7 +12,7 @@ public class UserData {
 	
 	public UserData(Connection con, String username) {
 		this.con = con;
-		this.username = username;
+		this.username = Main.currentUser;
 	}
 	
 	public JPanel createPane() {

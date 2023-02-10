@@ -6,17 +6,17 @@ import java.util.Properties;
 public class DataLoaderMain {
 
 	public static void main(String[] args) {
-		//int files = createFiles();
+		int files = createFiles();
 		
 		int add = addToDB();
 	}
 	
 	private static int createFiles() {
 		ObjectCreator oc = new ObjectCreator();
-		oc.createMovies();
-		oc.createTVShows();
+		//oc.createMovies();
 		oc.createActors();
-		oc.createStreamingServices();
+		oc.createTVShows();
+		//oc.createStreamingServices();
 		return 0;
 	}
 	

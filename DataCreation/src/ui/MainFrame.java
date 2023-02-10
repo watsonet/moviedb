@@ -1,13 +1,14 @@
 package ui;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.awt.BorderLayout;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
+
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,14 +24,14 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 public class MainFrame {
-	private Connection con;
+	private DatabaseConnectionService dbcs;
 	private String[][] movieList = new String[0][0];
 	private String[][] sortedMovieList = new String[0][0];
 	private String[] columnNames = {"Title", "Rating", "Release Date", "Runtime"};
 
 	
-	public void createFrame(Connection con) {
-		this.con = con;
+	public void createFrame(DatabaseConnectionService dbcs) {
+		this.dbcs = dbcs;
 		
 		JFrame frame = new JFrame();
 		frame.setLayout(new BorderLayout());
@@ -73,8 +74,14 @@ public class MainFrame {
 		ArrayList<String[]> movieTitles = new ArrayList<>();
 		
 		try {
-			Statement s = con.createStatement();
-			ResultSet rs = s.executeQuery(movieQuery);
+			CallableStatement cs = dbcs.getConnection().prepareCall(movieQuery);//should probably write sprocs for this but it's easy enough to justt write new strings so meh   
+
+		    boolean isResultSet = cs.execute();
+
+		    if (!isResultSet) {
+		    	System.out.println("The first result is not a ResultSet.");
+		    }else {
+		    	ResultSet rs = cs.getResultSet();
 			while (rs.next()) {
 				String[] movieData = new String[4];
 				movieData[0] = rs.getString("Title");
@@ -84,7 +91,8 @@ public class MainFrame {
 				movieData[3] = rs.getString("Runtime");
 				movieTitles.add(movieData);
 			}
-		} catch (SQLException e) {
+		}
+		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 		

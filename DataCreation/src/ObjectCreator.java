@@ -1,4 +1,3 @@
-package backend;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,13 +12,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-import backend.Classes.Actor;
-import backend.Classes.Movie;
-import backend.Classes.StreamingService;
-import backend.Classes.TVShow;
-import backend.FileTools.FileID;
-import backend.FileTools.fileWriter;
 
 class ObjectCreator{
 	String url = "https://api.themoviedb.org/3/";
@@ -72,6 +64,7 @@ class ObjectCreator{
 			
 			try {
 				InputStream response = connection.getInputStream();
+				System.out.println("responded!");
 				JSONParser jsonParser = new JSONParser();
 				JSONObject extendedActorObject = (JSONObject)jsonParser.parse(new InputStreamReader(response, "UTF-8"));
 				toAdd.name = (String) extendedActorObject.get("name");

@@ -1,4 +1,3 @@
-package backend.Classes;
 
 public class Actor {
 	public long ID;

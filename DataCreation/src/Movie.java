@@ -1,4 +1,3 @@
-package backend.Classes;
 import java.util.ArrayList;
 
 public class Movie {

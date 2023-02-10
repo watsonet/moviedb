@@ -1,4 +1,3 @@
-package backend.Classes;
 public class StreamingService {
 	public long ID;
 	public String name = "";

@@ -1,4 +1,3 @@
-package backend.FileTools;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,11 +9,6 @@ import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
-
-import backend.Classes.Actor;
-import backend.Classes.Movie;
-import backend.Classes.StreamingService;
-import backend.Classes.TVShow;
 
 public class FileID {
 	private JSONParser parser;
@@ -150,7 +144,9 @@ public class FileID {
 			JSONObject original = (JSONObject) o;
 			Long id = (Long) original.get("id");
 			String name = (String) original.get("name");
-			StreamingService service = new StreamingService(id, name);
+				
+			StreamingService service = new StreamingService(id);
+			service.name = name;
 			output.add(service);
 		}
 		return output;

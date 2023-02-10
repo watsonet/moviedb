@@ -1,4 +1,3 @@
-package backend.ClassServices;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -6,12 +5,8 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import backend.DatabaseConnectionService;
-import backend.Classes.StreamingService;
-import backend.FileTools.FileID;
-
 public class StreamingServiceService {
-	private String ServiceFilepath = "../DataCreation/outputServices.txt";
+	private String ServiceFilepath = "../DataCreation/outputService.txt";
 	private DatabaseConnectionService dbService = null;
 	
 	public StreamingServiceService(DatabaseConnectionService dbService) {
@@ -31,7 +26,7 @@ public class StreamingServiceService {
 				cs.execute();
 				int returnValue = cs.getInt(1);
 				if(returnValue == 1) {
-					//JOptionPane.showMessageDialog(null, "ID already exists");
+					JOptionPane.showMessageDialog(null, "ID already exists");
 				}
 				if(returnValue == 2) {
 					JOptionPane.showMessageDialog(null, "ID cannot be null");

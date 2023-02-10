@@ -1,15 +1,9 @@
-package backend.FileTools;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.simple.JSONObject;
-
-import backend.Classes.Actor;
-import backend.Classes.Movie;
-import backend.Classes.StreamingService;
-import backend.Classes.TVShow;
 
 public class fileWriter {
 	private BufferedWriter file;
@@ -65,6 +59,7 @@ public class fileWriter {
 	
 	@SuppressWarnings("unchecked")
 	public int addActor(Actor actor) {
+		System.out.println("I'm working!");
 		JSONObject actorJSON = new JSONObject();
 		actorJSON.put("name", actor.name);
 		actorJSON.put("gender", actor.gender);

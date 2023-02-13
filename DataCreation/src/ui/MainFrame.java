@@ -17,6 +17,7 @@ public class MainFrame {
 		Connection con = this.dbcs.getConnection();
 
 		JFrame frame = new JFrame();
+		frame.setTitle("User: " + Main.currentUser);
 		JTabbedPane tabbedPane = new JTabbedPane();
 
 		// Movies

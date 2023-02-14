@@ -30,7 +30,8 @@ public class MainFrame {
 
 		// User things
 		UserData userData = new UserData(con, dbcs.getUsername());
-		JPanel userPanel = userData.createPane();
+		JPanel userPanel = userData.createTabbedPane();
+//		JPanel profileSearch = userData.createTabbedPane();
 
 		// Admin page (only shown if you have admin privileges to the DB)
 

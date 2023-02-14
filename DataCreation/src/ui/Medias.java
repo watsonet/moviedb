@@ -32,7 +32,7 @@ public abstract class Medias {
 		JPanel servicePanel = createPanel(Type.HOSTED);
 		JPanel actorPanel = createPanel(Type.ACTED);
 		
-		mediaPane.add("Shows", everythingPanel);
+		mediaPane.add("Media", everythingPanel);
 		mediaPane.add("Streaming services", servicePanel);
 		mediaPane.add("Actors/Actresses", actorPanel);
 		

@@ -26,7 +26,7 @@ public class DatabaseConnectionService {
 				.replace("${user}", user).replace("${pass}", pass);
 		try {
 			connection = DriverManager.getConnection(url);
-			System.out.println("successfully conencted to DB");
+			System.out.println("successfully connected to DB");
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

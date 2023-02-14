@@ -10,13 +10,13 @@ public class Watched extends Medias {
 	
 	public Watched(Connection con) {
 		super(con);
-		String[] a = {"Title", "Rating", "Release Date", "Runtime"};
+		String[] a = {"Title", "Rating", "Release Date"};
 		this.columnNames = a;
 	}
 
 	@Override
 	public String[][] getMediaInfo() {
-		String watchedQuery = "SELECT * FROM Media m JOIN Watched w ON m.ID=w.MediaID and " + Main.currentUser + "=w.Username BY m.Title ASC";
+		String watchedQuery = "SELECT * FROM Media m JOIN Watched w ON m.ID=w.MediaID and '" + Main.currentUser + "'=w.Username ORDER BY m.Title ASC";
 		ArrayList<String[]> watchedTitles = new ArrayList<>();
 
 		try {
@@ -28,7 +28,7 @@ public class Watched extends Medias {
 				String rating = rs.getString("Rating");
 				watchedData[1] = rating.substring(0, 3);
 				watchedData[2] = rs.getString("ReleaseDate");
-				watchedData[3] = rs.getString("Runtime");
+//				watchedData[3] = rs.getString("Runtime");
 				watchedTitles.add(watchedData);
 			}
 		} catch (SQLException e) {

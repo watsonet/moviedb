@@ -37,7 +37,7 @@ public class UserData {
 		this.con = con;
 		this.watched = new Watched(con);
 		this.username = Main.currentUser;
-		String[] a = {"Title", "Rating", "Release Date", "Runtime"};
+		String[] a = {"Title", "Rating", "Release Date"};
 		this.watchedColumns = a;
 		String[] b = {"Name"};
 		this.subColumns = b;
@@ -79,7 +79,7 @@ public class UserData {
 		newSubName = new JTextField();
 		newSubName.setColumns(10);
 
-//		this.watchedList = watched.getMediaInfo();		
+		this.watchedList = watched.getMediaInfo();		
 		
 		JTable table1 = new JTable();
 		table1.setModel(new DefaultTableModel(watchedList, watchedColumns));

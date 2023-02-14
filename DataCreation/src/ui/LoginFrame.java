@@ -92,6 +92,7 @@ public class LoginFrame {
 						ResultSet rs = cs.executeQuery();
 						int PWSalt = rs.findColumn("PasswordSalt");
 						int PWHash = rs.findColumn("Password");
+						
 						while(rs.next()) {
 							String hash = rs.getString(PWHash);
 							String saltStr = rs.getString(PWSalt);

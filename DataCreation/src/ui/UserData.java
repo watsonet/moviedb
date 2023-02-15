@@ -30,16 +30,18 @@ public class UserData {
 	protected String[][] subList = new String[0][0];
 	protected String[] subColumns;
 	Watched watched;
+	Subbed subbed;
 //	JTextField newSodaManf = null;
 	
 
 	public UserData(Connection con, String username) {
 		this.con = con;
 		this.watched = new Watched(con);
+		this.subbed = new Subbed(con);
 		this.username = Main.currentUser;
 		String[] a = {"Title", "Rating", "Release Date"};
 		this.watchedColumns = a;
-		String[] b = {"Name"};
+		String[] b = {"Streaming Service Name"};
 		this.subColumns = b;
 
 	}
@@ -104,10 +106,14 @@ public class UserData {
 		newSubName = new JTextField();
 		newSubName.setColumns(10);
 
+		this.subList = subbed.getMediaInfo();		
+
 		JTable table1 = new JTable();
 		table1.setModel(new DefaultTableModel(subList, subColumns));
+		
 		JScrollPane table1Pane = new JScrollPane(table1);
 		userPanel.add(table1Pane, BorderLayout.LINE_END);
+		
 		return userPanel;
 	}
 	

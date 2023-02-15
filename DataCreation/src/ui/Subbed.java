@@ -10,13 +10,13 @@ public class Subbed extends Medias {
 	
 	public Subbed(Connection con) {
 		super(con);
-		String[] a = {"Streaming Service Name"};
+		String[] a = {"Streaming Service Name", "Subscribe?"};
 		this.columnNames = a;
 	}
 
 	@Override
 	public String[][] getMediaInfo() {
-		String subbedQuery = "SELECT ss.SName FROM StreamingService ss JOIN Subscribed s ON ss.ID=s.ServiceID WHERE '" + Main.currentUser + "'=s.Username ORDER BY ss.SName ASC";
+		String subbedQuery = "SELECT ss.SName FROM StreamingService ss";
 		ArrayList<String[]> serviceTitles = new ArrayList<>();
 
 		try {
@@ -37,37 +37,23 @@ public class Subbed extends Medias {
 
 	@Override
 	protected String[][] getMediaHostedInfo() {
-		String[] a = {"Service", "Title", "Rating", "Release Date", "Runtime"};
-		this.columnNames = a;
-		
-		String showQuery = "SELECT s.SName, md.Title, md.Rating, md.ReleaseDate, m.Runtime\n"
-				+ "	FROM StreamingService s\n"
-				+ "	JOIN Hosts h\n"
-				+ "	ON s.ID = h.ServiceID\n"
-				+ "	JOIN Movie m\n"
-				+ "	ON m.MediaID = h.MediaID\n"
-				+ "	JOIN Media md\n"
-				+ "	ON m.MediaID = md.ID";
-		ArrayList<String[]> showTitles = new ArrayList<>();
+		String subbedQuery = "SELECT ss.SName FROM StreamingService ss JOIN Subscribed s ON ss.ID=s.ServiceID WHERE '" + Main.currentUser + "'=s.Username ORDER BY ss.SName ASC";
+		ArrayList<String[]> serviceTitles = new ArrayList<>();
 
 		try {
 			Statement s = con.createStatement();
-			ResultSet rs = s.executeQuery(showQuery);
+			ResultSet rs = s.executeQuery(subbedQuery);
 			while (rs.next()) {
-				String[] showData = new String[this.columnNames.length];
-				showData[0] = rs.getString("SName");
-				showData[1] = rs.getString("Title");
-				String rating = rs.getString("Rating");
-				showData[2] = rating.substring(0, 3);
-				showData[3] = rs.getString("ReleaseDate");
-				showData[3] = rs.getString("Runtime");
-				showTitles.add(showData);
+				String[] serviceData = new String[this.columnNames.length];
+				serviceData[0] = rs.getString("SName");
+
+				serviceTitles.add(serviceData);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return convertArrayListToArray(showTitles);
+		return convertArrayListToArray(serviceTitles);
 	}
 
 	@Override

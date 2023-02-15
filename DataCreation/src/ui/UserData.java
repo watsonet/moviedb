@@ -41,81 +41,99 @@ public class UserData {
 		this.username = Main.currentUser;
 		String[] a = {"Title", "Rating", "Release Date"};
 		this.watchedColumns = a;
-		String[] b = {"Streaming Service Name"};
+		String[] b = {"Streaming Service Name", "Subscribed?"};
 		this.subColumns = b;
 
 	}
 
 	public JPanel createTabbedPane() {
-		JTabbedPane mediaPane = new JTabbedPane();
+		JTabbedPane tabPane = new JTabbedPane();
 		
 		JPanel watchedPanel = new JPanel();
 		watchedPanel.setLayout(new BorderLayout());
 		JPanel subPanel = new JPanel();
 		subPanel.setLayout(new BorderLayout()); 
 		
-		mediaPane.add("Watched", watchedPanel);
-		mediaPane.add("Subscribed", subPanel);
+		tabPane.add("Subscribed", subPanel);
+		tabPane.add("Watched", watchedPanel);
 		
 		JPanel userPanel = new JPanel();
 		userPanel.setLayout(new BorderLayout());
-		userPanel.add(mediaPane, BorderLayout.NORTH);
-		watchedPanel.add(createWatchedPane(), BorderLayout.SOUTH);
-		subPanel.add(createSubPane(), BorderLayout.SOUTH);
+		userPanel.add(tabPane, BorderLayout.NORTH);
+		watchedPanel.add(createWatchedPane(), BorderLayout.CENTER);
+		watchedPanel.add(watchedTable());
+		subPanel.add(createSubPane(), BorderLayout.CENTER);
+		subPanel.add(subbedTable(),BorderLayout.SOUTH);
 
 		return userPanel;
 	}
 	
 	public JPanel createWatchedPane() {
-		JPanel userPanel = new JPanel();
-		userPanel.setLayout(new FlowLayout());
+		JPanel watchPanel = new JPanel();
+		watchPanel.setLayout(new FlowLayout());
 		newMediaName = new JTextField();
 		newMediaName.setColumns(10);
 //		newMediaName.setPreferredSize(new Dimension(100, 30));
-		userPanel.add(new JLabel("Media Name:"));
-		userPanel.add(newMediaName);
+		watchPanel.add(new JLabel("Media Name:"));
+		watchPanel.add(newMediaName, BorderLayout.NORTH);
 //		userPanel.add(newMediaName, BorderLayout.EAST);
 		JButton addWatchedButton = new JButton("Add Media Watched");
-		userPanel.add(addWatchedButton);
+		watchPanel.add(addWatchedButton, BorderLayout.NORTH);
 		
-		newSubName = new JTextField();
-		newSubName.setColumns(10);
+//		newSubName = new JTextField();
+//		newSubName.setColumns(10);
 
+		
+		
+		return watchPanel;
+	}
+	public JPanel watchedTable() {
+		JPanel watchPanel = new JPanel();
 		this.watchedList = watched.getMediaInfo();		
 		
 		JTable table1 = new JTable();
 		table1.setModel(new DefaultTableModel(watchedList, watchedColumns));
 
 		JScrollPane table1Pane = new JScrollPane(table1);
-		userPanel.add(table1Pane, BorderLayout.LINE_END);
-		
-		return userPanel;
+		watchPanel.add(table1Pane, BorderLayout.PAGE_END);
+		return watchPanel;
 	}
 	
 	public JPanel createSubPane() {
-		JPanel userPanel = new JPanel();
-		userPanel.setLayout(new FlowLayout());
-		newMediaName = new JTextField();
-		newMediaName.setColumns(10);
-		userPanel.add(new JLabel("Subscription Name:"));
-		userPanel.add(newMediaName);
-		
-		JButton addSubButton = new JButton("Add Service Subscription");
-		userPanel.add(addSubButton);
-		
+		JPanel subPanel = new JPanel();
+		subPanel.setLayout(new FlowLayout());
+//		newMediaName = new JTextField();
+//		newMediaName.setColumns(10);
 		newSubName = new JTextField();
 		newSubName.setColumns(10);
+		subPanel.add(new JLabel("Subscription Name:"));
+		subPanel.add(newMediaName, BorderLayout.NORTH);
+		
+		JButton addSubButton = new JButton("Add Service Subscription");
+		subPanel.add(addSubButton, BorderLayout.NORTH);
+		
 
+//		this.subList = subbed.getMediaInfo();		
+//
+//		JTable table1 = new JTable();
+//		table1.setModel(new DefaultTableModel(subList, subColumns));
+//		
+//		JScrollPane table1Pane = new JScrollPane(table1);
+//		subPanel.add(table1Pane, BorderLayout.SOUTH);
+		
+		return subPanel;
+	}
+	
+	public JPanel subbedTable() {
+		JPanel subPanel = new JPanel();
 		this.subList = subbed.getMediaInfo();		
 
 		JTable table1 = new JTable();
 		table1.setModel(new DefaultTableModel(subList, subColumns));
 		
 		JScrollPane table1Pane = new JScrollPane(table1);
-		userPanel.add(table1Pane, BorderLayout.LINE_END);
-		
-		return userPanel;
+		subPanel.add(table1Pane);
+		return subPanel;
 	}
-	
 	
 }

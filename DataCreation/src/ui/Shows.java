@@ -13,10 +13,17 @@ public class Shows extends Medias {
 
 	@Override
 	protected String[][] getMediaInfo() {
-		String[] a = {"Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode"};
+		String[] a = {"Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode", "Service", "Watched?"};
 		this.columnNames = a;
 		
-		String showQuery = "SELECT * FROM Media m JOIN Show s ON m.ID=s.MediaID ORDER BY m.Title ASC";
+		String showQuery = "SELECT md.Title, md.Rating, md.ReleaseDate, sh.NumSeasons, sh.NumEpisodes, sh.NumEpisodes, sh.LastEpDate, s.SName\n"
+				+ "	FROM StreamingService s\n"
+				+ "	JOIN Hosts h\n"
+				+ "	ON s.ID = h.ServiceID\n"
+				+ "	JOIN Show sh\n"
+				+ "	ON sh.MediaID = h.MediaID\n"
+				+ "	JOIN Media md\n"
+				+ "	ON sh.MediaID = md.ID";
 		ArrayList<String[]> showTitles = new ArrayList<>();
 
 		try {
@@ -31,6 +38,7 @@ public class Shows extends Medias {
 				showData[3] = rs.getString("NumSeasons");
 				showData[4] = rs.getString("NumEpisodes");
 				showData[5] = rs.getString("LastEpDate");
+				showData[6] = rs.getString("SName");
 				showTitles.add(showData);
 			}
 		} catch (SQLException e) {
@@ -79,7 +87,7 @@ public class Shows extends Medias {
 
 	@Override
 	protected String[][] getMediaActedInfo() {
-		String[] a = {"Actor", "Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode"};
+		String[] a = {"Actor", "Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode", "Watched?"};
 		this.columnNames = a;
 		
 		String showQuery = "SELECT a.Name , md.Title, md.Rating, md.ReleaseDate, sh.NumSeasons, sh.NumEpisodes, sh.NumEpisodes, sh.LastEpDate\n"

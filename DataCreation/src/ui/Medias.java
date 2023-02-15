@@ -29,11 +29,11 @@ public abstract class Medias {
 		JTabbedPane mediaPane = new JTabbedPane();
 		
 		JPanel everythingPanel = createPanel(null);
-		JPanel servicePanel = createPanel(Type.HOSTED);
+//		JPanel servicePanel = createPanel(Type.HOSTED);
 		JPanel actorPanel = createPanel(Type.ACTED);
 		
 		mediaPane.add("Media", everythingPanel);
-		mediaPane.add("Streaming services", servicePanel);
+//		mediaPane.add("Streaming services", servicePanel);
 		mediaPane.add("Actors/Actresses", actorPanel);
 		
 		return mediaPane;

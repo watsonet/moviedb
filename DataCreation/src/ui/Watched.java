@@ -32,21 +32,28 @@ public class Watched extends Medias {
 				watchedData[2] = rating.substring(0, 3);
 				watchedData[3] = rs.getString("ReleaseDate");
 				watchedData[4] = false;
-				String exists = "select * from watched w where "  
-						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 
-						+ rs.getInt("ID"); //\n return -1";
-//				ArrayList<Object[]> watchedExists = new ArrayList<>();
-				try {
-					Statement s2 = con.createStatement();
-					ResultSet rs2 = s2.executeQuery(exists);
-//					System.out.println("working");
-					while(rs2.next()) {
-						watchedData[4] = true;
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-//				watchedData[3] = rs.getString("Runtime");
+				
+				
+				
+				//COMMENT OUT HERE FOR TESTING PURPOSES
+//				String exists = "select * from watched w where "  
+//						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 
+//						+ rs.getInt("ID"); //\n return -1";
+//				try {
+//					Statement s2 = con.createStatement();
+//					ResultSet rs2 = s2.executeQuery(exists);
+//					while(rs2.next()) {
+//						watchedData[4] = true;
+//					}
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+				
+				
+				
+				
+				
+				
 				watchedTitles.add(watchedData);
 			}
 		} catch (SQLException e) {

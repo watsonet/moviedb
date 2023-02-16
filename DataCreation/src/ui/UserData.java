@@ -243,9 +243,9 @@ public class UserData {
 //					System.out.println(table.getClientProperty("ID"));
 					System.out.println(table2.getValueAt(e.getLastRow(), 0));
 					System.out.println(table2.getValueAt(e.getLastRow(), e.getColumn()));
+					
 					boolean val = (boolean) table2.getValueAt(e.getLastRow(), e.getColumn());
 					int SID = (int) table2.getValueAt(e.getLastRow(), 0);
-					
 					if (val) {
 						try {
 							CallableStatement cs = con.prepareCall("{? = call addSubscribed(?, ?)}");

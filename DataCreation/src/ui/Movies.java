@@ -50,27 +50,27 @@ public class Movies extends Medias {
 //				movieData[4] = rs.getInt("MediaID");
 				movieData[6] = false;
 				
-				String exists = "select * from watched w where "  
-						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 
-						+ rs.getInt("MediaID"); //\n return -1";
-//				ArrayList<Object[]> watchedExists = new ArrayList<>();
-				try {
-					Statement s2 = con.createStatement();
-//					ResultSet rs2 = s2.executeQuery(exists);
-//					System.out.println("working");
-//					while(rs2.next()) {
-//						movieData[5] = true;
-//					}
-//					if (rs2.getFetchSize()==0) {
-//						movieData[5] = false;
-//					}
-//					else {
-//						movieData[5] = true;
-//					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-//				movieData[5] = rs.getInt("MediaID");
+//				String exists = "select * from watched w where "  
+//						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 
+//						+ rs.getInt("MediaID"); //\n return -1";
+////				ArrayList<Object[]> watchedExists = new ArrayList<>();
+//				try {
+//					Statement s2 = con.createStatement();
+////					ResultSet rs2 = s2.executeQuery(exists);
+////					System.out.println("working");
+////					while(rs2.next()) {
+////						movieData[5] = true;
+////					}
+////					if (rs2.getFetchSize()==0) {
+////						movieData[5] = false;
+////					}
+////					else {
+////						movieData[5] = true;
+////					}
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+				
 //				((JComponent) movieData[5]).putClientProperty("ID",rs.getInt("ID"));
 				movieTitles.add(movieData);
 			} 

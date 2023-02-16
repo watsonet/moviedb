@@ -27,6 +27,7 @@ public class Subbed extends Medias {
 				serviceData[0] = rs.getInt("ID");
 				serviceData[1] = rs.getString("SName");
 				serviceData[2] = false;
+//				serviceData[2].put
 				String exists = "select * from subscribed s where "  
 						+ "s.Username ='" + Main.currentUser + "' and s.ServiceID=" 
 						+ rs.getInt("ID"); //\n return -1";
@@ -38,12 +39,6 @@ public class Subbed extends Medias {
 					while(rs2.next()) {
 						serviceData[2] = true;
 					}
-//					if (rs2.getFetchSize()==0) {
-//						movieData[5] = false;
-//					}
-//					else {
-//						movieData[5] = true;
-//					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

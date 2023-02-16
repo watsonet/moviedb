@@ -45,7 +45,7 @@ public class MainFrame {
 
 		frame.add(tabbedPane);
 		frame.setVisible(true);
-		frame.setSize(800, 600);
+		frame.setSize(1000, 600);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 

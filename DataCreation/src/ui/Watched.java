@@ -10,24 +10,42 @@ public class Watched extends Medias {
 	
 	public Watched(Connection con) {
 		super(con);
-		String[] a = {"Title", "Rating", "Release Date"};
+		String[] a = {"ID", "Title", "Rating", "Release Date", "Watched?"};
 		this.columnNames = a;
 	}
 
 	@Override
 	public Object[][] getMediaInfo() {
-		String watchedQuery = "SELECT * FROM Media m JOIN Watched w ON m.ID=w.MediaID and '" + Main.currentUser + "'=w.Username ORDER BY m.Title ASC";
+//		String watchedQuery = "SELECT * FROM Media m JOIN Watched w ON m.ID=w.MediaID and '" + Main.currentUser + "'=w.Username ORDER BY m.Title ASC";
+		String watchedQuery = "SELECT * FROM Media";
+
 		ArrayList<Object[]> watchedTitles = new ArrayList<>();
 
 		try {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(watchedQuery);
 			while (rs.next()) {
-				Object[] watchedData = new String[this.columnNames.length];
-				watchedData[0] = rs.getString("Title");
+				Object[] watchedData = new Object[this.columnNames.length];
+				watchedData[0] = rs.getInt("ID");
+				watchedData[1] = rs.getString("Title");
 				String rating = rs.getString("Rating");
-				watchedData[1] = rating.substring(0, 3);
-				watchedData[2] = rs.getString("ReleaseDate");
+				watchedData[2] = rating.substring(0, 3);
+				watchedData[3] = rs.getString("ReleaseDate");
+				watchedData[4] = false;
+				String exists = "select * from watched w where "  
+						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 
+						+ rs.getInt("ID"); //\n return -1";
+//				ArrayList<Object[]> watchedExists = new ArrayList<>();
+				try {
+					Statement s2 = con.createStatement();
+					ResultSet rs2 = s2.executeQuery(exists);
+//					System.out.println("working");
+					while(rs2.next()) {
+						watchedData[4] = true;
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 //				watchedData[3] = rs.getString("Runtime");
 				watchedTitles.add(watchedData);
 			}

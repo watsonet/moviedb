@@ -48,7 +48,7 @@ public class Movies extends Medias {
 				movieData[5] = false;
 //				movieData[5].putClientProperty();
 				movieTitles.add(movieData);
-			}
+			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

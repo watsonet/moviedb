@@ -26,14 +26,14 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
-public abstract class Medias {
+public abstract class UserTables {
 	protected static Connection con;
 	protected Object[][] mediaList = new Object[0][0];
 	protected Object[][] sortedMediaList = new Object[0][0];
 	protected Object[] columnNames;
 	static JTable table;
 
-	public Medias(Connection con) {
+	public UserTables(Connection con) {
 		Medias.con = con;
 		table = new JTable();
 	}
@@ -86,18 +86,18 @@ public abstract class Medias {
 		DefaultTableModel model;
 //		table.setModel(new DefaultTableModel(mediaList, columnNames));
 		model = new DefaultTableModel(mediaList, columnNames) {
-//			@Override
-//			public Class getColumnClass(int column) {
-////				for (int i = 0; i < columnNames.length; i++) {
-////					System.out.println(columnNames[i]);
-////					
-////				}
-//				if (column == columnNames.length - 1) {
-//					return Boolean.class;
-//				} else {
-//					return String.class;
+			@Override
+			public Class getColumnClass(int column) {
+//				for (int i = 0; i < columnNames.length; i++) {
+//					System.out.println(columnNames[i]);
+//					
 //				}
-//			}
+				if (column == columnNames.length - 1) {
+					return Boolean.class;
+				} else {
+					return String.class;
+				}
+			}
 		};
 //		mediaList[columnNames.length-1].DefaultCellEditor();
 

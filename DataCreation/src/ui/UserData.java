@@ -93,7 +93,7 @@ public class UserData {
 		subPanel.add(subbedTable());
 		
 		System.out.println("adding watched");
-		watchedPanel.add(watchedTable(), BorderLayout.SOUTH);
+		watchedPanel.add(watchedTable());
 //		System.out.println("print table");
 //		subPanel.add(createSubPane(), BorderLayout.CENTER);
 		

@@ -13,7 +13,7 @@ public class Shows extends Medias {
 
 	@Override
 	protected Object[][] getMediaInfo() {
-		String[] a = {"Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode", "Service", "Watched?"};
+		String[] a = {"Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode", "Service"};
 		this.columnNames = a;
 		
 		String showQuery = "SELECT md.Title, md.Rating, md.ReleaseDate, sh.NumSeasons, sh.NumEpisodes, sh.NumEpisodes, sh.LastEpDate, s.SName\n"
@@ -87,7 +87,7 @@ public class Shows extends Medias {
 
 	@Override
 	protected Object[][] getMediaActedInfo() {
-		String[] a = {"Actor", "Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode", "Watched?"};
+		String[] a = {"Actor", "Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode"};
 		this.columnNames = a;
 		
 		String showQuery = "SELECT a.Name , md.Title, md.Rating, md.ReleaseDate, sh.NumSeasons, sh.NumEpisodes, sh.NumEpisodes, sh.LastEpDate\n"

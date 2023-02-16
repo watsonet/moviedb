@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.swing.JCheckBox;
+import javax.swing.JComponent;
 
 public class Movies extends Medias {
 	public Movies(Connection con) {
@@ -17,8 +18,8 @@ public class Movies extends Medias {
 
 	@Override
 	public Object[][] getMediaInfo() {
-		String movieQuery = "SELECT md.Title, md.Rating, md.ReleaseDate, m.Runtime, s.SName\n"
-
+		String movieQuery = "SELECT md.Title, md.Rating, md.ReleaseDate, m.Runtime, s.SName, m.MediaID\n"
+		
 //		String movieQuery = "SELECT md.Title, md.Rating, md.ReleaseDate, m.Runtime, a.Name, s.SName\n"
 				+ "	FROM StreamingService s\n"
 				+ "	JOIN Hosts h\n"
@@ -32,26 +33,51 @@ public class Movies extends Medias {
 //				+ "	JOIN Actor a\n"
 //				+ "	ON ai.ActorID = a.ID";
 		ArrayList<Object[]> movieTitles = new ArrayList<>();
-
+		Object[] movieData;
 		try {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(movieQuery); 
 			while (rs.next()) {
-				Object[] movieData = new Object[this.columnNames.length];
+				
+				movieData = new Object[this.columnNames.length];
 				movieData[0] = rs.getString("Title");
 				String rating = rs.getString("Rating");
 				movieData[1] = rating.substring(0, 3);
 				movieData[2] = rs.getString("ReleaseDate");
 				movieData[3] = rs.getString("Runtime");
-//				movieData[4] = rs.getString("Name");
 				movieData[4] = rs.getString("SName");
+//				movieData[4] = rs.getInt("MediaID");
 				movieData[5] = false;
-//				movieData[5].putClientProperty();
+				
+				String exists = "select * from watched w where '" 
+						+ Main.currentUser 
+						+ "'=w.Username and w.MediaID=" 
+						+ rs.getInt("MediaID"); //\n return -1";
+//				ArrayList<Object[]> watchedExists = new ArrayList<>();
+				try {
+					Statement s2 = con.createStatement();
+//					ResultSet rs2 = s2.executeQuery(exists);
+//					System.out.println("working");
+//					while(rs2.next()) {
+//						movieData[5] = true;
+//					}
+//					if (rs2.getFetchSize()==0) {
+//						movieData[5] = false;
+//					}
+//					else {
+//						movieData[5] = true;
+//					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+//				movieData[5] = rs.getInt("MediaID");
+//				((JComponent) movieData[5]).putClientProperty("ID",rs.getInt("ID"));
 				movieTitles.add(movieData);
 			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 
 		return convertArrayListToArray(movieTitles);
 	}

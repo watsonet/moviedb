@@ -23,9 +23,9 @@ public class Subbed extends Medias {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(subbedQuery);
 			while (rs.next()) {
-				Object[] serviceData = new String[this.columnNames.length];
+				Object[] serviceData = new Object[this.columnNames.length];
 				serviceData[0] = rs.getString("SName");
-
+				serviceData[1] = false;
 				serviceTitles.add(serviceData);
 			}
 		} catch (SQLException e) {

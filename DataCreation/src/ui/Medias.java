@@ -96,8 +96,9 @@ public abstract class Medias {
 			public void tableChanged(TableModelEvent e) {
 				// TODO Auto-generated method stub
 				if (e.getColumn() == table.getColumnCount()-1) {
-					
+//					table.getClientTProperty("ID");
 					System.out.println(e.getColumn());
+					System.out.println(table.getClientProperty("ID"));
 					
 				}
 			}  

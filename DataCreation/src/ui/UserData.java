@@ -129,8 +129,20 @@ public class UserData {
 		this.subList = subbed.getMediaInfo();		
 
 		JTable table1 = new JTable();
-		table1.setModel(new DefaultTableModel(subList, subColumns));
+		DefaultTableModel model;
+		model = new DefaultTableModel(subList, subColumns) {
+			@Override 
+			public Class getColumnClass(int column) {
+				if (column == subColumns.length-1) {
+					return Boolean.class;
+				}
+				else {
+					return String.class;
+				}
+			}
+		};
 		
+		table1.setModel(model);
 		JScrollPane table1Pane = new JScrollPane(table1);
 		subPanel.add(table1Pane);
 		return subPanel;

@@ -35,19 +35,20 @@ public class Watched extends Medias {
 				
 				
 				
+				
 				//COMMENT OUT HERE FOR TESTING PURPOSES
-//				String exists = "select * from watched w where "  
-//						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 
-//						+ rs.getInt("ID"); //\n return -1";
-//				try {
-//					Statement s2 = con.createStatement();
-//					ResultSet rs2 = s2.executeQuery(exists);
-//					while(rs2.next()) {
-//						watchedData[4] = true;
-//					}
-//				} catch (SQLException e) {
-//					e.printStackTrace();
-//				}
+				String exists = "select * from watched w where "  
+						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 
+						+ rs.getInt("ID"); //\n return -1";
+				try {
+					Statement s2 = con.createStatement();
+					ResultSet rs2 = s2.executeQuery(exists);
+					while(rs2.next()) {
+						watchedData[4] = true;
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 				
 				
 				

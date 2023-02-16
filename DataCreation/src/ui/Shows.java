@@ -12,7 +12,7 @@ public class Shows extends Medias {
 	}
 
 	@Override
-	protected String[][] getMediaInfo() {
+	protected Object[][] getMediaInfo() {
 		String[] a = {"Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode", "Service", "Watched?"};
 		this.columnNames = a;
 		
@@ -24,13 +24,13 @@ public class Shows extends Medias {
 				+ "	ON sh.MediaID = h.MediaID\n"
 				+ "	JOIN Media md\n"
 				+ "	ON sh.MediaID = md.ID";
-		ArrayList<String[]> showTitles = new ArrayList<>();
+		ArrayList<Object[]> showTitles = new ArrayList<>();
 
 		try {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(showQuery);
 			while (rs.next()) {
-				String[] showData = new String[this.columnNames.length];
+				Object[] showData = new String[this.columnNames.length];
 				showData[0] = rs.getString("Title");
 				String rating = rs.getString("Rating");
 				showData[1] = rating.substring(0, 3);
@@ -49,7 +49,7 @@ public class Shows extends Medias {
 	}
 
 	@Override
-	protected String[][] getMediaHostedInfo() {
+	protected Object[][] getMediaHostedInfo() {
 		String[] a = {"Service", "Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode"};
 		this.columnNames = a;
 		
@@ -61,13 +61,13 @@ public class Shows extends Medias {
 				+ "	ON sh.MediaID = h.MediaID\n"
 				+ "	JOIN Media md\n"
 				+ "	ON sh.MediaID = md.ID";
-		ArrayList<String[]> showTitles = new ArrayList<>();
+		ArrayList<Object[]> showTitles = new ArrayList<>();
 
 		try {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(showQuery);
 			while (rs.next()) {
-				String[] showData = new String[this.columnNames.length];
+				Object[] showData = new String[this.columnNames.length];
 				showData[0] = rs.getString("SName");
 				showData[1] = rs.getString("Title");
 				String rating = rs.getString("Rating");
@@ -86,7 +86,7 @@ public class Shows extends Medias {
 	}
 
 	@Override
-	protected String[][] getMediaActedInfo() {
+	protected Object[][] getMediaActedInfo() {
 		String[] a = {"Actor", "Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode", "Watched?"};
 		this.columnNames = a;
 		
@@ -99,13 +99,13 @@ public class Shows extends Medias {
 				+ "	JOIN Media md \n"
 				+ "	ON sh.MediaID = md.ID \n"
 				+ "	ORDER BY a.Name ";
-		ArrayList<String[]> showTitles = new ArrayList<>();
+		ArrayList<Object[]> showTitles = new ArrayList<>();
 
 		try {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(showQuery);
 			while (rs.next()) {
-				String[] showData = new String[this.columnNames.length];
+				Object[] showData = new String[this.columnNames.length];
 				showData[0] = rs.getString("Name");
 				showData[1] = rs.getString("Title");
 				String rating = rs.getString("Rating");

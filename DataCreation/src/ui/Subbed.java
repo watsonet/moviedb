@@ -15,15 +15,15 @@ public class Subbed extends Medias {
 	}
 
 	@Override
-	public String[][] getMediaInfo() {
+	public Object[][] getMediaInfo() {
 		String subbedQuery = "SELECT ss.SName FROM StreamingService ss";
-		ArrayList<String[]> serviceTitles = new ArrayList<>();
+		ArrayList<Object[]> serviceTitles = new ArrayList<>();
 
 		try {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(subbedQuery);
 			while (rs.next()) {
-				String[] serviceData = new String[this.columnNames.length];
+				Object[] serviceData = new String[this.columnNames.length];
 				serviceData[0] = rs.getString("SName");
 
 				serviceTitles.add(serviceData);
@@ -36,15 +36,15 @@ public class Subbed extends Medias {
 	}
 
 	@Override
-	protected String[][] getMediaHostedInfo() {
+	protected Object[][] getMediaHostedInfo() {
 		String subbedQuery = "SELECT ss.SName FROM StreamingService ss JOIN Subscribed s ON ss.ID=s.ServiceID WHERE '" + Main.currentUser + "'=s.Username ORDER BY ss.SName ASC";
-		ArrayList<String[]> serviceTitles = new ArrayList<>();
+		ArrayList<Object[]> serviceTitles = new ArrayList<>();
 
 		try {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(subbedQuery);
 			while (rs.next()) {
-				String[] serviceData = new String[this.columnNames.length];
+				Object[] serviceData = new String[this.columnNames.length];
 				serviceData[0] = rs.getString("SName");
 
 				serviceTitles.add(serviceData);
@@ -57,7 +57,7 @@ public class Subbed extends Medias {
 	}
 
 	@Override
-	protected String[][] getMediaActedInfo() {
+	protected Object[][] getMediaActedInfo() {
 		String[] a = {"Actor", "Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode"};
 		this.columnNames = a;
 		
@@ -70,13 +70,13 @@ public class Subbed extends Medias {
 				+ "	JOIN Media md \n"
 				+ "	ON sh.MediaID = md.ID \n"
 				+ "	ORDER BY a.Name ";
-		ArrayList<String[]> showTitles = new ArrayList<>();
+		ArrayList<Object[]> showTitles = new ArrayList<>();
 
 		try {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(showQuery);
 			while (rs.next()) {
-				String[] showData = new String[this.columnNames.length];
+				Object[] showData = new String[this.columnNames.length];
 				showData[0] = rs.getString("Name");
 				showData[1] = rs.getString("Title");
 				String rating = rs.getString("Rating");

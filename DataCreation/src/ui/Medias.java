@@ -1,5 +1,9 @@
 package ui;
 
+import java.awt.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*; 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,14 +16,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 
 public abstract class Medias {
 	protected static Connection con;
-	protected String[][] mediaList = new String[0][0];
-	protected String[][] sortedMediaList = new String[0][0];
-	protected String[] columnNames;
+	protected Object[][] mediaList = new Object[0][0];
+	protected Object[][] sortedMediaList = new Object[0][0];
+	protected Object[] columnNames;
 	
 	public Medias(Connection con) {
 		Medias.con = con;
@@ -46,11 +52,11 @@ public abstract class Medias {
 	 * 2) Can be used as a fallback
 	 * 3) Potentially use it as a basis for getMediaHostedInfo and future methods like that
 	 */
-	protected abstract String[][] getMediaInfo();
+	protected abstract Object[][] getMediaInfo();
 	
-	protected abstract String[][] getMediaHostedInfo();
+	protected abstract Object[][] getMediaHostedInfo();
 	
-	protected abstract String[][] getMediaActedInfo();
+	protected abstract Object[][] getMediaActedInfo();
 	
 	private JPanel createPanel(Type type) {
 		JPanel p1 = new JPanel();
@@ -63,14 +69,39 @@ public abstract class Medias {
 		if (type == Type.ACTED) {
 			this.mediaList = getMediaActedInfo();
 		} else if (type == Type.HOSTED) {
-			this.mediaList = getMediaHostedInfo();
+			this.mediaList = (String[][]) getMediaHostedInfo();
 		} else {
 			// ideally don't use this, but its there as a fallback and/or for testing
 			this.mediaList = getMediaInfo();			
 		}
 
 		JTable table = new JTable();
-		table.setModel(new DefaultTableModel(mediaList, columnNames));
+		DefaultTableModel model;
+//		table.setModel(new DefaultTableModel(mediaList, columnNames));
+		model = new DefaultTableModel(mediaList, columnNames) {
+			@Override 
+			public Class getColumnClass(int column) {
+				if (column == columnNames.length-1) {
+					return Boolean.class;
+				}
+				else {
+					return String.class;
+				}
+			}
+		};
+//		mediaList[columnNames.length-1].DefaultCellEditor();
+
+		table.setModel(model);
+		table.getModel().addTableModelListener(new TableModelListener() {
+			public void tableChanged(TableModelEvent e) {
+				// TODO Auto-generated method stub
+				if (e.getColumn() == table.getColumnCount()-1) {
+					
+					System.out.println(e.getColumn());
+					
+				}
+			}  
+		});
 		JScrollPane tablePane = new JScrollPane(table);
 
 		JPanel searchOptionsPanel = new JPanel();
@@ -114,27 +145,48 @@ public abstract class Medias {
 		
 	}
 	
-	protected String[][] convertArrayListToArray(ArrayList<String[]> l) {
-		String[][] a = l.toArray(new String[0][0]);
+	protected Object[][] convertArrayListToArray(ArrayList<Object[]> l) {
+		Object[][] a = l.toArray(new Object[0][0]);
 		return a;
 	}
 	
 	protected void sortMediaList(char first, JTable table) {
 		if (first == '\0') {
-			table.setModel(new DefaultTableModel(mediaList, columnNames));
+			table.setModel(new DefaultTableModel(mediaList, columnNames) {
+//				@Override 
+//				public Class getColumnClass(int column) {
+//					if (column == columnNames.length-1) {
+//						return Boolean.class;
+//					}
+//					else {
+//						return String.class;
+//					}
+//				}
+			});
 			return;
 		}
 		
-		ArrayList<String[]> sorted = new ArrayList<>();
-		for (String[] s: mediaList) {
+		ArrayList<Object[]> sorted = new ArrayList<>();
+		for (Object[] s: mediaList) {
 			// s[0] will always be Title
-			if (s[0].toLowerCase().charAt(0) == first) {
+			if (((String) s[0]).toLowerCase().charAt(0) == first) {
 				sorted.add(s);
 			}
 		}
 		
 		this.sortedMediaList = convertArrayListToArray(sorted);
 		
-		table.setModel(new DefaultTableModel(sortedMediaList, columnNames));
+		table.setModel(new DefaultTableModel(sortedMediaList, columnNames) {
+//			@Override 
+//			public Class getColumnClass(int column) {
+//				if (column == columnNames.length-1) {
+//					return Boolean.class;
+//				}
+//				else {
+//					return String.class;
+//				}
+//			}
+		});
+		
 	}
 }

@@ -25,9 +25,9 @@ public class UserData {
 //	private JMenu menu;
 	JTextField newMediaName = null;
 	JTextField newSubName = null;
-	protected String[][] watchedList = new String[0][0];
+	protected Object[][] watchedList = new String[0][0];
 	protected String[] watchedColumns;
-	protected String[][] subList = new String[0][0];
+	protected Object[][] subList = new String[0][0];
 	protected String[] subColumns;
 	Watched watched;
 	Subbed subbed;

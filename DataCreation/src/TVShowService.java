@@ -59,9 +59,9 @@ public class TVShowService {
 				
 				
 				cs = dbService.getConnection().prepareCall("{? = call addShow(?, ?, ?, ?)}");
-				cs.setLong(2, (long) show.ID);
-				cs.setLong(3,  (long) show.numSeasons);
-				cs.setLong(4,  (long) show.numEpisodes);
+				cs.setLong(2, show.ID);
+				cs.setLong(3,  show.numSeasons);
+				cs.setLong(4,  show.numEpisodes);
 				cs.setString(5, show.lastEpDate);	//unsure if correct data type
 
 
@@ -75,9 +75,9 @@ public class TVShowService {
 				if(returnValue == 2) {
 					JOptionPane.showMessageDialog(null, "ID " + show.ID + " does not exist in Media table");
 				}
-				if(returnValue == 3) {
-					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Show table");
-				}
+//				if(returnValue == 3) {
+//					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Show table");
+//				}
 				if(returnValue == 4) {
 					JOptionPane.showMessageDialog(null, "Runtime can not be null");
 				}

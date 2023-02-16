@@ -94,9 +94,9 @@ public class MovieService {
 						JOptionPane.showMessageDialog(null, "ID does not exist in Media table");
 						
 					}
-					if(returnValue == 5) {
-						JOptionPane.showMessageDialog(null, "Actor-Media pair must be unique");
-					}
+//					if(returnValue == 5) {
+//						JOptionPane.showMessageDialog(null, "Actor-Media pair must be unique");
+//					}
 				}
 				cs = dbService.getConnection().prepareCall("{? = call addHosts(?, ?)}");
 				cs.setLong(3,  mov.ID);
@@ -117,9 +117,9 @@ public class MovieService {
 					if(returnValue == 4) {
 						JOptionPane.showMessageDialog(null, "ID does not exist in Media table");
 					}
-					if(returnValue == 5) {
-						JOptionPane.showMessageDialog(null, "Service-Media pair must be unique");
-					}
+//					if(returnValue == 5) {
+//						JOptionPane.showMessageDialog(null, "Service-Media pair must be unique");
+//					}
 				}
 			}catch(SQLException e) {
 				e.printStackTrace();

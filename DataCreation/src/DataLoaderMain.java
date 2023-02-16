@@ -31,11 +31,11 @@ public class DataLoaderMain {
 			//StreamingServiceService serve = new StreamingServiceService(dbcs);
 			//ActorService act = new ActorService(dbcs);
 			TVShowService tv = new TVShowService(dbcs);
-			//MovieService mov = new MovieService(dbcs);
+			MovieService mov = new MovieService(dbcs);
 			//serve.addService();
 			//act.addActors();
-			tv.addTVShows();
-			//mov.addMovies();
+			//tv.addTVShows();
+			mov.addMovies();
 			
 		} catch (IOException ex) {
             ex.printStackTrace();

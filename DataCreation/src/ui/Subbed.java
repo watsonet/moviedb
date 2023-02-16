@@ -10,13 +10,13 @@ public class Subbed extends Medias {
 	
 	public Subbed(Connection con) {
 		super(con);
-		String[] a = {"Streaming Service Name", "Subscribe?"};
+		String[] a = {"Service ID", "Streaming Service Name", "Subscribe?"};
 		this.columnNames = a;
 	}
 
 	@Override
 	public Object[][] getMediaInfo() {
-		String subbedQuery = "SELECT ss.SName FROM StreamingService ss";
+		String subbedQuery = "SELECT ss.ID, ss.SName FROM StreamingService ss";
 		ArrayList<Object[]> serviceTitles = new ArrayList<>();
 
 		try {
@@ -24,8 +24,29 @@ public class Subbed extends Medias {
 			ResultSet rs = s.executeQuery(subbedQuery);
 			while (rs.next()) {
 				Object[] serviceData = new Object[this.columnNames.length];
-				serviceData[0] = rs.getString("SName");
-				serviceData[1] = false;
+				serviceData[0] = rs.getInt("ID");
+				serviceData[1] = rs.getString("SName");
+				serviceData[2] = false;
+				String exists = "select * from subscribed s where "  
+						+ "s.Username ='" + Main.currentUser + "' and s.ServiceID=" 
+						+ rs.getInt("ID"); //\n return -1";
+//				ArrayList<Object[]> watchedExists = new ArrayList<>();
+				try {
+					Statement s2 = con.createStatement();
+					ResultSet rs2 = s2.executeQuery(exists);
+//					System.out.println("working");
+					while(rs2.next()) {
+						serviceData[2] = true;
+					}
+//					if (rs2.getFetchSize()==0) {
+//						movieData[5] = false;
+//					}
+//					else {
+//						movieData[5] = true;
+//					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 				serviceTitles.add(serviceData);
 			}
 		} catch (SQLException e) {

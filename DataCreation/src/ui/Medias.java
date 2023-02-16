@@ -31,9 +31,11 @@ public abstract class Medias {
 	protected Object[][] mediaList = new Object[0][0];
 	protected Object[][] sortedMediaList = new Object[0][0];
 	protected Object[] columnNames;
+	static JTable table;
 
 	public Medias(Connection con) {
 		Medias.con = con;
+		table = new JTable();
 	}
 
 	public JTabbedPane createPane() {
@@ -118,15 +120,15 @@ public abstract class Medias {
 						cs.execute();
 						int returnValue = cs.getInt(1);
 						System.out.println(Main.currentUser + ": " + returnValue);
-						UserData user = new UserData(con, Main.currentUser);
-						user.refresh();
+//						UserData user = new UserData(con, Main.currentUser);
+//						UserData.refresh();
 //						user.createTabbedPane();
 //						MainFrame frame = new MainFrame(con.);
 //						SwingUtilities.updateComponentTreeUI(MainFrame.frame);
 //						MainFrame.frame.invalidate();
 //						MainFrame.frame.validate();
 //						MainFrame.frame.repaint();
-//						model.fireTableDataChanged();
+						model.fireTableDataChanged();
 					} catch (SQLException e2) {
 						e2.printStackTrace();
 					}

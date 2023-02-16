@@ -35,7 +35,7 @@ public class Movies extends Medias {
 
 		try {
 			Statement s = con.createStatement();
-			ResultSet rs = s.executeQuery(movieQuery);
+			ResultSet rs = s.executeQuery(movieQuery); 
 			while (rs.next()) {
 				Object[] movieData = new Object[this.columnNames.length];
 				movieData[0] = rs.getString("Title");

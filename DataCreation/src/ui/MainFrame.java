@@ -8,15 +8,19 @@ import javax.swing.JTabbedPane;
 
 public class MainFrame {
 	private DatabaseConnectionService dbcs;
-	
+	static JFrame frame;
 	public MainFrame(DatabaseConnectionService dbcs) {
 		this.dbcs = dbcs;
+		frame = new JFrame();
 	}
 
+//	public static void update() {
+//		frame.repaint();
+//	}
 	public void createFrame() {
 		Connection con = this.dbcs.getConnection();
 
-		JFrame frame = new JFrame();
+//		JFrame frame = new JFrame();
 		frame.setTitle("User: " + Main.currentUser);
 		JTabbedPane tabbedPane = new JTabbedPane();
 

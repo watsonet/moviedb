@@ -31,6 +31,8 @@ public class UserData {
 	protected String[] subColumns;
 	Watched watched;
 	Subbed subbed;
+	JTable table1;
+	JTable table2;
 //	JTextField newSodaManf = null;
 	
 
@@ -43,10 +45,16 @@ public class UserData {
 		this.watchedColumns = a;
 		String[] b = {"Streaming Service Name", "Subscribed?"};
 		this.subColumns = b;
+		table1 = new JTable();
+		table2 = new JTable();
 
 	}
-
+	public void refresh() {
+		table1.repaint();
+		table2.repaint();
+	}
 	public JPanel createTabbedPane() {
+		System.out.println("creating tabbed pane");
 		JTabbedPane tabPane = new JTabbedPane();
 		
 		JPanel watchedPanel = new JPanel();
@@ -54,8 +62,8 @@ public class UserData {
 		JPanel subPanel = new JPanel();
 		subPanel.setLayout(new BorderLayout()); 
 		
-		tabPane.add("Subscribed", subPanel);
 		tabPane.add("Watched", watchedPanel);
+		tabPane.add("Subscribed", subPanel);
 		
 		JPanel userPanel = new JPanel();
 		userPanel.setLayout(new BorderLayout());
@@ -65,6 +73,8 @@ public class UserData {
 		subPanel.add(createSubPane(), BorderLayout.CENTER);
 		subPanel.add(subbedTable(),BorderLayout.SOUTH);
 
+		MainFrame.frame.repaint();
+		
 		return userPanel;
 	}
 	
@@ -80,8 +90,7 @@ public class UserData {
 		JButton addWatchedButton = new JButton("Add Media Watched");
 		watchPanel.add(addWatchedButton, BorderLayout.NORTH);
 		
-//		newSubName = new JTextField();
-//		newSubName.setColumns(10);
+
 
 		
 		
@@ -91,11 +100,14 @@ public class UserData {
 		JPanel watchPanel = new JPanel();
 		this.watchedList = watched.getMediaInfo();		
 		
-		JTable table1 = new JTable();
-		table1.setModel(new DefaultTableModel(watchedList, watchedColumns));
+//		JTable table1 = new JTable();
+		DefaultTableModel model = new DefaultTableModel(watchedList, watchedColumns);
+		model.fireTableDataChanged();
+		model.addTableModelListener(table1);
 
+		table1.setModel(model);
 		JScrollPane table1Pane = new JScrollPane(table1);
-		watchPanel.add(table1Pane, BorderLayout.PAGE_END);
+		watchPanel.add(table1Pane);
 		return watchPanel;
 	}
 	
@@ -128,7 +140,7 @@ public class UserData {
 		JPanel subPanel = new JPanel();
 		this.subList = subbed.getMediaInfo();		
 
-		JTable table1 = new JTable();
+//		JTable table1 = new JTable();
 		DefaultTableModel model;
 		model = new DefaultTableModel(subList, subColumns) {
 			@Override 
@@ -141,9 +153,9 @@ public class UserData {
 				}
 			}
 		};
-		
-		table1.setModel(model);
-		JScrollPane table1Pane = new JScrollPane(table1);
+//		table1.revalidate();
+		table2.setModel(model);
+		JScrollPane table1Pane = new JScrollPane(table2);
 		subPanel.add(table1Pane);
 		return subPanel;
 	}

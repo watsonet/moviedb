@@ -12,13 +12,13 @@ import javax.swing.JComponent;
 public class Movies extends Medias {
 	public Movies(Connection con) {
 		super(con);
-		String[] a = {"Title", "Rating", "Release Date", "Runtime", "Service",  "Watched?"};
+		String[] a = {"ID", "Title", "Rating", "Release Date", "Runtime", "Service",  "Watched?"};
 		this.columnNames = a;
 	}
 
 	@Override
 	public Object[][] getMediaInfo() {
-		String movieQuery = "SELECT md.Title, md.Rating, md.ReleaseDate, m.Runtime, s.SName, m.MediaID\n"
+		String movieQuery = "SELECT m.MediaID, md.Title, md.Rating, md.ReleaseDate, m.Runtime, s.SName\n"
 		
 //		String movieQuery = "SELECT md.Title, md.Rating, md.ReleaseDate, m.Runtime, a.Name, s.SName\n"
 				+ "	FROM StreamingService s\n"
@@ -40,18 +40,18 @@ public class Movies extends Medias {
 			while (rs.next()) {
 				
 				movieData = new Object[this.columnNames.length];
-				movieData[0] = rs.getString("Title");
+				movieData[0] = rs.getInt("MediaID");
+				movieData[1] = rs.getString("Title");
 				String rating = rs.getString("Rating");
-				movieData[1] = rating.substring(0, 3);
-				movieData[2] = rs.getString("ReleaseDate");
-				movieData[3] = rs.getString("Runtime");
-				movieData[4] = rs.getString("SName");
+				movieData[2] = rating.substring(0, 3);
+				movieData[3] = rs.getString("ReleaseDate");
+				movieData[4] = rs.getString("Runtime");
+				movieData[5] = rs.getString("SName");
 //				movieData[4] = rs.getInt("MediaID");
-				movieData[5] = false;
+				movieData[6] = false;
 				
-				String exists = "select * from watched w where '" 
-						+ Main.currentUser 
-						+ "'=w.Username and w.MediaID=" 
+				String exists = "select * from watched w where "  
+						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 
 						+ rs.getInt("MediaID"); //\n return -1";
 //				ArrayList<Object[]> watchedExists = new ArrayList<>();
 				try {
@@ -117,10 +117,10 @@ public class Movies extends Medias {
 
 	@Override
 	protected Object[][] getMediaActedInfo() {
-		String[] a = {"Actor", "Title", "Rating", "Release Date", "Runtime", "Watched?"};
+		String[] a = {"Actor", "ID", "Title", "Rating", "Release Date", "Runtime", "Watched?"};
 		this.columnNames = a;
 		
-		String movieQuery = "SELECT a.Name , md.Title, md.Rating, md.ReleaseDate, m.Runtime\n"
+		String movieQuery = "SELECT a.Name , md.Title, md.Rating, md.ReleaseDate, m.Runtime, m.MediaID\n"
 				+ "	FROM Actor a\n"
 				+ "	JOIN ActedIn ai \n"
 				+ "	ON a.ID = ai.ActorID \n"
@@ -135,13 +135,15 @@ public class Movies extends Medias {
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(movieQuery);
 			while (rs.next()) {
-				Object[] movieData = new String[this.columnNames.length];
+				Object[] movieData = new Object[this.columnNames.length];
 				movieData[0] = rs.getString("Name");
-				movieData[1] = rs.getString("Title");
+				movieData[1] = rs.getInt("MediaID");
+				movieData[2] = rs.getString("Title");
 				String rating = rs.getString("Rating");
-				movieData[2] = rating.substring(0, 3);
-				movieData[3] = rs.getString("ReleaseDate");
-				movieData[4] = rs.getString("Runtime");
+				movieData[3] = rating.substring(0, 3);
+				movieData[4] = rs.getString("ReleaseDate");
+				movieData[5] = rs.getString("Runtime");
+				movieData[6] = false;
 				movieTitles.add(movieData);
 				
 			}

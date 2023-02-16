@@ -36,6 +36,7 @@ public class Watched extends Medias {
 				
 				
 				
+				
 				//COMMENT OUT HERE FOR TESTING PURPOSES
 				String exists = "select * from watched w where "  
 						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 

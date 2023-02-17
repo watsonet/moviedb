@@ -142,18 +142,14 @@ public class UserData {
 			}
 		};
 		table1.setModel(model);
+		table1.removeColumn(table1.getColumn(model.getColumnName(0)));
 		table1.getModel().addTableModelListener(new TableModelListener() {
 			public void tableChanged(TableModelEvent e) {
 				// TODO Auto-generated method stub
-				if (e.getColumn() == table1.getColumnCount() - 1) {
-//					table.getClientTProperty("ID");
-//					System.out.println(e.getColumn());
-//					System.out.println(table.getClientProperty("ID"));
-					System.out.println(table1.getValueAt(e.getLastRow(), 0));
-					System.out.println(table1.getValueAt(e.getLastRow(), e.getColumn()));
-					boolean val = (boolean) table1.getValueAt(e.getLastRow(), e.getColumn());
-					int MID = (int) table1.getValueAt(e.getLastRow(), 0);
-					
+				if (e.getColumn() == table1.getColumnCount()) {
+					boolean val = (boolean) table1.getValueAt(e.getLastRow(), e.getColumn() - 1);
+					int MID = (int) table1.getModel().getValueAt(e.getLastRow(), 0);
+					System.out.println(MID);
 					if (val) {
 						try {
 							CallableStatement cs = con.prepareCall("{? = call addWatched(?, ?)}");
@@ -232,20 +228,14 @@ public class UserData {
 				}
 			}
 		};
-//		table1.revalidate();
 		table2.setModel(model);
+		table2.removeColumn(table2.getColumn(model.getColumnName(0)));
 		table2.getModel().addTableModelListener(new TableModelListener() {
 			public void tableChanged(TableModelEvent e) {
 				// TODO Auto-generated method stub
-				if (e.getColumn() == table2.getColumnCount() - 1) {
-//					table.getClientTProperty("ID");
-//					System.out.println(e.getColumn());
-//					System.out.println(table.getClientProperty("ID"));
-					System.out.println(table2.getValueAt(e.getLastRow(), 0));
-					System.out.println(table2.getValueAt(e.getLastRow(), e.getColumn()));
-					
-					boolean val = (boolean) table2.getValueAt(e.getLastRow(), e.getColumn());
-					int SID = (int) table2.getValueAt(e.getLastRow(), 0);
+				if (e.getColumn() == table2.getColumnCount()) {
+					boolean val = (boolean) table2.getValueAt(e.getLastRow(), e.getColumn() - 1);
+					int SID = (int) table2.getModel().getValueAt(e.getLastRow(), 0);
 					if (val) {
 						try {
 							CallableStatement cs = con.prepareCall("{? = call addSubscribed(?, ?)}");

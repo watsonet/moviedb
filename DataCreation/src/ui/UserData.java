@@ -127,7 +127,7 @@ public class UserData {
 //	}
 	public JPanel watchedTable() {
 		JPanel watchPanel = new JPanel();
-		this.watchedList = watched.getMediaInfo();		
+		this.watchedList = watched.getMediaHostedInfo();		
 		
 //		JTable table1 = new JTable();
 		DefaultTableModel model;
@@ -213,7 +213,7 @@ public class UserData {
 	@SuppressWarnings("serial")
 	public JPanel subbedTable() {
 		JPanel subPanel = new JPanel();
-		this.subList = subbed.getMediaInfo();		
+		this.subList = subbed.getMediaHostedInfo();		
 //		Object newSubList[][] = subList[subList.length][subList[].length];
 //		JTable table1 = new JTable();
 		DefaultTableModel model;

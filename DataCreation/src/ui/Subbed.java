@@ -15,7 +15,7 @@ public class Subbed extends Medias {
 	}
 
 	@Override
-	public Object[][] getMediaInfo() {
+	public Object[][] getMediaHostedInfo() {
 		String subbedQuery = "SELECT ss.ID, ss.SName, s.ServiceID FROM StreamingService ss LEFT JOIN subscribed s on s.Username ='" + Main.currentUser + "'";
 		ArrayList<Object[]> serviceTitles = new ArrayList<>();
 
@@ -38,29 +38,8 @@ public class Subbed extends Medias {
 	}
 
 	@Override
-	protected Object[][] getMediaHostedInfo() {
-		String subbedQuery = "SELECT ss.SName FROM StreamingService ss JOIN Subscribed s ON ss.ID=s.ServiceID WHERE '" + Main.currentUser + "'=s.Username ORDER BY ss.SName ASC";
-		ArrayList<Object[]> serviceTitles = new ArrayList<>();
-
-		try {
-			Statement s = con.createStatement();
-			ResultSet rs = s.executeQuery(subbedQuery);
-			while (rs.next()) {
-				Object[] serviceData = new String[this.columnNames.length];
-				serviceData[0] = rs.getString("SName");
-
-				serviceTitles.add(serviceData);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return convertArrayListToArray(serviceTitles);
-	}
-
-	@Override
 	protected Object[][] getMediaActedInfo() {
-		String[] a = {"Actor", "Title", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode"};
+		String[] a = {"Title", "Actor", "Rating", "Release Date", "Season Count", "Episode Count", "Latest Episode"};
 		this.columnNames = a;
 		
 		String showQuery = "SELECT a.Name , md.Title, md.Rating, md.ReleaseDate, sh.NumSeasons, sh.NumEpisodes, sh.NumEpisodes, sh.LastEpDate\n"

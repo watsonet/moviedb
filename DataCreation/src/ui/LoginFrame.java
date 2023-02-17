@@ -45,7 +45,7 @@ public class LoginFrame {
 
 	public void createFrame() {
 		DatabaseConnectionService dbcs = null;
-		try (InputStream input = new FileInputStream("../DataCreation/src/mediadb.properties")) {
+		try (InputStream input = new FileInputStream("./DataCreation/src/mediadb.properties")) {
 			Properties properties = new Properties();
 			properties.load(input);
 			dbcs = new DatabaseConnectionService(properties.getProperty("serverName"),

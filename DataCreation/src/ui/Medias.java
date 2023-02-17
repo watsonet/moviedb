@@ -63,6 +63,33 @@ public abstract class Medias {
 			sortingPanel.add(b);
 		}
 
+		String s[] = {"None", "Watched", "Unwatched"};
+		JComboBox box = new JComboBox(s);
+		box.addActionListener(box);
+		String val = (String)box.getSelectedItem();
+		if (val.equals("None")) {
+			System.out.println("none");
+		}
+		if (val.equals("Watched")) {
+			System.out.println("watched");
+		}
+		if (val.equals("Unwatched")) {
+			System.out.println("unwatched");
+		}
+		sortingPanel.add(box);
+//		box.addItemListener(s);
+		
+//		JButton watchedButton = new JButton("Watched");
+//		watchedButton.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				
+//			}
+//		});
+//
+//		sortingPanel.add(watchedButton);
+		
 		JButton clearButton = new JButton("Clear");
 		clearButton.addActionListener(new ActionListener() {
 

@@ -9,34 +9,32 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 public abstract class Medias {
 	protected static Connection con;
-	protected Object[][] mediaList = new Object[0][0];
-	protected Object[][] sortedMediaList = new Object[0][0];
+	private Object[][] mediaList = new Object[0][0];
+	private Object[][] sortedMediaList = new Object[0][0];
 	protected Object[] columnNames;
-	protected JTable table;
+	protected JTable table = new JTable();
 	protected CategoryToggle[] catToggles = new CategoryToggle[0];
 	protected DefaultTableModel model;
 
 	public Medias(Connection con) {
 		Medias.con = con;
-		table = new JTable();
-		
-		this.model = new DefaultTableModel(mediaList, columnNames);
 	}
 
-	public JTabbedPane createPane() {
-		JTabbedPane mediaPane = new JTabbedPane();
+	public JPanel createPane(Type type) {
+		JPanel mediaPane = new JPanel();
 
-		JPanel servicesPanel = createPanel(Type.HOSTED);
-		JPanel actorPanel = createPanel(Type.ACTED);
+		JPanel mediaPanel = createPanel(type);
 
-		mediaPane.add("Services", servicesPanel);
-		mediaPane.add("Actors/Actresses", actorPanel);
+		mediaPane.add(mediaPanel);
 
 		return mediaPane;
 	}
@@ -65,16 +63,19 @@ public abstract class Medias {
 
 			sortingPanel.add(b);
 		}
-		
+
 		JButton clearButton = new JButton("Clear");
 		clearButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				clearSearch();
+				searchField.setText("");
 			}
 		});
-		
+
+		sortingPanel.add(clearButton);
+
 		return sortingPanel;
 	}
 
@@ -102,16 +103,18 @@ public abstract class Medias {
 		searchPanel.setLayout(new BoxLayout(searchPanel, BoxLayout.Y_AXIS));
 		JLabel text = new JLabel("Select search terms");
 
-		if (type == Type.ACTED) {
-			this.mediaList = getMediaActedInfo();
-		} else if (type == Type.HOSTED) {
+		if (type == Type.HOSTED) {
 			this.mediaList = getMediaHostedInfo();
+		} else if (type == Type.ACTED) {
+			this.mediaList = getMediaActedInfo();
 		}
-		
+
+		this.model = new DefaultTableModel(mediaList, columnNames);
+
 		this.model.setDataVector(mediaList, columnNames);
-		
+
 		this.table.setModel(model);
-		
+
 		initTable();
 
 		JScrollPane tablePane = new JScrollPane(this.table);
@@ -131,9 +134,9 @@ public abstract class Medias {
 
 	private JTextField createTextBoxes(JPanel panel, JTable table, Type type) {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-		
+
 		String tabCategory = "";
-		
+
 		if (type == Type.ACTED) {
 			tabCategory = "cast members";
 		} else if (type == Type.HOSTED) {
@@ -165,7 +168,7 @@ public abstract class Medias {
 		if (this.sortedMediaList.equals(new Object[0][0])) {
 			this.sortedMediaList = this.mediaList;
 		}
-		
+
 		if (queryUnformatted.isBlank() || queryUnformatted == null) {
 			clearSearch();
 			return;
@@ -213,33 +216,33 @@ public abstract class Medias {
 		default:
 			for (int i = 0; i < this.mediaList.length; i++) {
 				// Use toggles to sort by ascending or descending
-				
-				// Only one at a time, so you can have date be asc, but everything else has to be none
+
+				// Only one at a time, so you can have date be asc, but everything else has to
+				// be none
 			}
 			System.out.println("Sorted by other " + type);
 		}
 
 		this.sortedMediaList = convertArrayListToArray(sorted);
-		
+
 		this.model.setDataVector(this.sortedMediaList, columnNames);
 
 		table.setModel(this.model);
 
 	}
-	
+
 	private void clearSearch() {
 		this.sortedMediaList = new Object[0][0];
 		for (int i = 0; i < this.catToggles.length; i++) {
 			this.catToggles[i] = CategoryToggle.NONE;
 		}
-		
-		this.model.setDataVector(mediaList, columnNames);
-		
+
+		this.model.setDataVector(this.mediaList, columnNames);
+
 		table.setModel(this.model);
 	}
-	
+
 	private void initTable() {
-		table.setModel(model);
 		table.getModel().addTableModelListener(new TableModelListener() {
 			public void tableChanged(TableModelEvent e) {
 				if (e.getColumn() == table.getColumnCount() - 1) {

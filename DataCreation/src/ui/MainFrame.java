@@ -25,12 +25,25 @@ public class MainFrame {
 		JTabbedPane tabbedPane = new JTabbedPane();
 
 		// Movies
-		Movies movies = new Movies(con);
-		JTabbedPane moviePanel = movies.createPane();
+		Movies actedMovies = new Movies(con);
+		Movies hostedMovies = new Movies(con);
+		
+		JTabbedPane moviePanel = new JTabbedPane();
+		JPanel movieActedPanel = actedMovies.createPane(Type.ACTED);
+		JPanel movieHostedPanel = hostedMovies.createPane(Type.HOSTED);
+		
+		moviePanel.add("Actors/Actresses", movieActedPanel);
+		moviePanel.add("Services", movieHostedPanel);
 
 		// TV Shows
-		Shows shows = new Shows(con);
-		JTabbedPane showPanel = shows.createPane();
+		Shows actedShows = new Shows(con);
+		Shows hostedShows = new Shows(con);
+		JTabbedPane showPanel = new JTabbedPane();
+		JPanel showActedPanel = actedShows.createPane(Type.ACTED);
+		JPanel showHostedPanel = hostedShows.createPane(Type.HOSTED);
+		
+		showPanel.add("Actors/Actresses", showActedPanel);
+		showPanel.add("Services", showHostedPanel);
 
 		// User things
 		UserData userData = new UserData(con, dbcs.getUsername());

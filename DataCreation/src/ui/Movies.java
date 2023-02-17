@@ -6,19 +6,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.table.DefaultTableModel;
+
 public class Movies extends Medias {
 	public Movies(Connection con) {
 		super(con);
-		String[] cols = {"Title", "Service", "Rating", "Release Date", "Runtime"};
-		this.columnNames = cols;
-		CategoryToggle[] ct = new CategoryToggle[cols.length];
-		for (int i = 0; i < cols.length; i++) {
-			ct[i] = CategoryToggle.NONE;
-		}
 	}
 
 	@Override
 	public Object[][] getMediaHostedInfo() {
+		String[] cols = {"Title", "Service", "Rating", "Release Date", "Runtime"};
+		this.columnNames = cols;
+		
+		CategoryToggle[] ct = new CategoryToggle[cols.length];
+		for (int i = 0; i < cols.length; i++) {
+			ct[i] = CategoryToggle.NONE;
+		}
+		
 		String movieQuery = "SELECT m.MediaID, md.Title, s.SName, md.Rating, md.ReleaseDate, m.Runtime\n"
 				+ "	FROM StreamingService s\n"
 				+ "	JOIN Hosts h\n"
@@ -54,8 +58,13 @@ public class Movies extends Medias {
 
 	@Override
 	protected Object[][] getMediaActedInfo() {
-		String[] a = {"Title", "Actor", "Rating", "Release Date", "Runtime"};
-		this.columnNames = a;
+		String[] cols = {"Title", "Actor", "Rating", "Release Date", "Runtime"};
+		this.columnNames = cols;
+		
+		CategoryToggle[] ct = new CategoryToggle[cols.length];
+		for (int i = 0; i < cols.length; i++) {
+			ct[i] = CategoryToggle.NONE;
+		}
 		
 		String movieQuery = "SELECT a.Name , md.Title, md.Rating, md.ReleaseDate, m.Runtime, m.MediaID\n"
 				+ "	FROM Actor a\n"

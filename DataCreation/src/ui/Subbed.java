@@ -16,7 +16,7 @@ public class Subbed extends Medias {
 
 	@Override
 	public Object[][] getMediaInfo() {
-		String subbedQuery = "SELECT ss.ID, ss.SName FROM StreamingService ss";
+		String subbedQuery = "SELECT ss.ID, ss.SName, s.ServiceID FROM StreamingService ss LEFT JOIN subscribed s on s.Username ='" + Main.currentUser + "'";
 		ArrayList<Object[]> serviceTitles = new ArrayList<>();
 
 		try {
@@ -26,22 +26,8 @@ public class Subbed extends Medias {
 				Object[] serviceData = new Object[this.columnNames.length];
 				serviceData[0] = rs.getInt("ID");
 				serviceData[1] = rs.getString("SName");
-				serviceData[2] = false;
-//				serviceData[2].put
-				String exists = "select * from subscribed s where "  
-						+ "s.Username ='" + Main.currentUser + "' and s.ServiceID=" 
-						+ rs.getInt("ID"); //\n return -1";
-//				ArrayList<Object[]> watchedExists = new ArrayList<>();
-				try {
-					Statement s2 = con.createStatement();
-					ResultSet rs2 = s2.executeQuery(exists);
-//					System.out.println("working");
-					while(rs2.next()) {
-						serviceData[2] = true;
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				serviceData[2] = rs.getString("ServiceID") == null? false : true;
+
 				serviceTitles.add(serviceData);
 			}
 		} catch (SQLException e) {

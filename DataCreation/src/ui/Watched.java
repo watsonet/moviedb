@@ -16,9 +16,8 @@ public class Watched extends Medias {
 
 	@Override
 	public Object[][] getMediaInfo() {
-//		String watchedQuery = "SELECT * FROM Media m JOIN Watched w ON m.ID=w.MediaID and '" + Main.currentUser + "'=w.Username ORDER BY m.Title ASC";
-		String watchedQuery = "SELECT * FROM Media";
-
+		String watchedQuery = "SELECT * FROM Media m LEFT JOIN Watched w ON m.ID=w.MediaID and '" + Main.currentUser + "'=w.Username ORDER BY m.Title ASC";
+		
 		ArrayList<Object[]> watchedTitles = new ArrayList<>();
 
 		try {
@@ -31,31 +30,8 @@ public class Watched extends Medias {
 				String rating = rs.getString("Rating");
 				watchedData[2] = rating.substring(0, 3);
 				watchedData[3] = rs.getString("ReleaseDate");
-				watchedData[4] = false;
-				
-				
-				
-				
-				
-				//COMMENT OUT HERE FOR TESTING PURPOSES
-				String exists = "select * from watched w where "  
-						+ "w.Username ='" + Main.currentUser + "' and w.MediaID=" 
-						+ rs.getInt("ID"); //\n return -1";
-				try {
-					Statement s2 = con.createStatement();
-					ResultSet rs2 = s2.executeQuery(exists);
-					while(rs2.next()) {
-						watchedData[4] = true;
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				
-				
-				
-				
-				
-				
+				watchedData[4] = rs.getString("MediaID") == null? false : true;
+
 				watchedTitles.add(watchedData);
 			}
 		} catch (SQLException e) {

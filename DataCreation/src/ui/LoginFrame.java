@@ -45,7 +45,7 @@ public class LoginFrame {
 
 	public void createFrame() {
 		DatabaseConnectionService dbcs = null;
-		try (InputStream input = new FileInputStream("./DataCreation/src/mediadb.properties")) {
+		try (InputStream input = new FileInputStream("../DataCreation/src/mediadb.properties")) {
 			Properties properties = new Properties();
 			properties.load(input);
 			dbcs = new DatabaseConnectionService(properties.getProperty("serverName"),
@@ -142,10 +142,11 @@ public class LoginFrame {
 						e1.printStackTrace();
 					}
 					if (returnValue == 0) {
-						loginFrame.dispose();
+						loginLabel.setText("Registration successful!");
+//						loginFrame.dispose();
 
-						MainFrame mainFrame = new MainFrame(dbcs);
-						mainFrame.createFrame();
+//						MainFrame mainFrame = new MainFrame(dbcs);
+//						mainFrame.createFrame();
 					}
 					if (returnValue == 1) {
 						loginLabel.setText("Username cannot be null");

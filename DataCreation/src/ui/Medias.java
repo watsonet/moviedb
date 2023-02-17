@@ -39,7 +39,9 @@ public abstract class Medias {
 	private JPanel sortingPanel(JTextField searchField) {
 		JPanel sortingPanel = new JPanel();
 
-		for (int i = 0; i < this.columnNames.length; i++) {
+//		for (int i = 0; i < this.columnNames.length; i++) {
+		for (int i = 0; i < 2; i++) {
+
 			JButton b = new JButton((String) this.columnNames[i]);
 
 			b.addActionListener(new ActionListener() {
@@ -187,7 +189,7 @@ public abstract class Medias {
 			for (Object[] s : mediaList) {
 				if (((String) s[0]).toLowerCase().contains(query)) {
 					sorted.add(s);
-					System.out.println("Added " + ((String) s[0]));
+//					System.out.println("Added " + ((String) s[0]));
 				}
 			}
 			System.out.println("Sorted by " + type);
@@ -196,7 +198,7 @@ public abstract class Medias {
 			for (Object[] s : mediaList) {
 				if (((String) s[1]).toLowerCase().contains(query)) {
 					sorted.add(s);
-					System.out.println("Added " + ((String) s[1]));
+//					System.out.println("Added " + ((String) s[1]));
 				}
 			}
 			System.out.println("Sorted by " + type);
@@ -205,7 +207,7 @@ public abstract class Medias {
 			for (Object[] s : mediaList) {
 				if (((String) s[1]).toLowerCase().contains(query)) {
 					sorted.add(s);
-					System.out.println("Added " + ((String) s[1]));
+//					System.out.println("Added " + ((String) s[1]));
 				}
 			}
 			System.out.println("Sorted by " + type);

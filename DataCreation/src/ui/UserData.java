@@ -54,7 +54,9 @@ public class UserData {
 	private boolean oldPass = false;
 	private boolean newPass = false;
 
+//	private char[] newPassword = new char[0];
 	private char[] newPassword = new char[0];
+
 
 	public UserData(Connection con, String username) {
 		this.con = con;
@@ -310,8 +312,9 @@ public class UserData {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if (newPass && oldPass) {
-					String newHash = LoginFrame.hashPassword(salt, new String(newPassword));
-
+					String strNewPass = new String(newPassword);
+					String newHash = LoginFrame.hashPassword(salt, strNewPass);
+					System.out.println(strNewPass);
 					try {
 						CallableStatement cs = con.prepareCall("{? = call updUser(?, ?)}");
 						cs.setString(2, username);
@@ -324,6 +327,8 @@ public class UserData {
 							statusLabel.setText("Something went wrong, please try again");
 						} else {
 							statusLabel.setText("Success!");
+//							statusLabel.setText(strNewPass);
+
 						}
 					} catch (SQLException e1) {
 						e1.printStackTrace();

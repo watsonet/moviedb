@@ -16,7 +16,7 @@ public class Subbed extends Medias {
 
 	@Override
 	public Object[][] getMediaHostedInfo() {
-		String subbedQuery = "SELECT ss.ID, ss.SName, s.ServiceID FROM StreamingService ss LEFT JOIN subscribed s on s.Username ='" + Main.currentUser + "'";
+		String subbedQuery = "SELECT ss.ID, ss.SName, s.ServiceID FROM StreamingService ss LEFT JOIN subscribed s on ss.ID=s.ServiceID and s.Username ='" + Main.currentUser + "'";
 		ArrayList<Object[]> serviceTitles = new ArrayList<>();
 
 		try {

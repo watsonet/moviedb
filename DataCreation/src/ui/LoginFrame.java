@@ -85,7 +85,6 @@ public class LoginFrame {
 				if (user == null || pass == null) {
 					loginLabel.setText("Username or password cannot be empty");
 				} else {
-					loginLabel.setText("Connecting...");
 					try {
 						CallableStatement cs = dbcs.getConnection().prepareCall("{call checkUser(?)}");
 						cs.setString(1, user);
@@ -99,12 +98,14 @@ public class LoginFrame {
 							byte[] salt = dec.decode(saltStr);
 							
 							if(hashPassword(salt, pass).compareTo(hash) == 0) {
-								loginFrame.dispose();
+								loginFrame.setTitle("Connecting...");
 								
 								Main.currentUser = getUsername();
-	
+								
 								MainFrame mainFrame = new MainFrame(dbcs);
 								mainFrame.createFrame();
+								
+								loginFrame.dispose();
 							}
 						}
 					} catch (SQLException e1) {
@@ -242,11 +243,11 @@ public class LoginFrame {
 		return salt;
 	}
 	
-	public String getStringFromBytes(byte[] data) {
+	public static String getStringFromBytes(byte[] data) {
 		return enc.encodeToString(data);
 	}
 
-	public String hashPassword(byte[] salt, String password) {
+	public static String hashPassword(byte[] salt, String password) {
 
 		KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
 		SecretKeyFactory f;

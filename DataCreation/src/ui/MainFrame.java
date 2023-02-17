@@ -14,17 +14,14 @@ public class MainFrame {
 		frame = new JFrame();
 	}
 
-//	public static void update() {
-//		frame.repaint();
-//	}
 	public void createFrame() {
 		Connection con = this.dbcs.getConnection();
 
-//		JFrame frame = new JFrame();
 		frame.setTitle("User: " + Main.currentUser);
 		JTabbedPane tabbedPane = new JTabbedPane();
 
 		// Movies
+		// Separate instances because otherwise one would overwrite the other
 		Movies actedMovies = new Movies(con);
 		Movies hostedMovies = new Movies(con);
 		
@@ -36,6 +33,7 @@ public class MainFrame {
 		moviePanel.add("Services", movieHostedPanel);
 
 		// TV Shows
+		// Separate instances because otherwise one would overwrite the other
 		Shows actedShows = new Shows(con);
 		Shows hostedShows = new Shows(con);
 		JTabbedPane showPanel = new JTabbedPane();
@@ -48,7 +46,7 @@ public class MainFrame {
 		// User things
 		UserData userData = new UserData(con, dbcs.getUsername());
 		JPanel userPanel = userData.createTabbedPane();
-//		JPanel profileSearch = userData.createTabbedPane();
+
 
 		// Admin page (only shown if you have admin privileges to the DB)
 

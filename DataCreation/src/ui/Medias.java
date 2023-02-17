@@ -9,9 +9,6 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
-
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -215,7 +212,7 @@ public abstract class Medias {
 			break;
 		default:
 			for (int i = 0; i < this.mediaList.length; i++) {
-				// Use toggles to sort by ascending or descending
+				// TODO: Use toggles to sort by ascending or descending
 
 				// Only one at a time, so you can have date be asc, but everything else has to
 				// be none

@@ -32,30 +32,30 @@ public class TVShowService {
 				
 				cs.execute();
 				int returnValue = cs.getInt(1);
-//				if(returnValue == 1) {
-//					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Media table");
-//				}
-//				if(returnValue == 2) {
-//					JOptionPane.showMessageDialog(null, "ID cannot be null");
-//				}
-//				if(returnValue == 3) {
-//					JOptionPane.showMessageDialog(null, "ID cannot be negative");
-//				}
-//				if(returnValue == 4) {
-//					JOptionPane.showMessageDialog(null, "Title cannot be null");
-//				}
-//				if(returnValue == 5) {
-//					JOptionPane.showMessageDialog(null, "Rating cannot be null");
-//				}
-//				if(returnValue == 6) {
-//					JOptionPane.showMessageDialog(null, "Release Date cannot be null");
-//				}
-//				if(returnValue == 7) {
-//					JOptionPane.showMessageDialog(null, "Invalid value for isAdult");
-//				}
-//				if(returnValue == 8) {
-//					JOptionPane.showMessageDialog(null, "Rating must be between 0 and 10");
-//				}
+				if(returnValue == 1) {
+					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Media table");
+				}
+				if(returnValue == 2) {
+					JOptionPane.showMessageDialog(null, "ID cannot be null");
+				}
+				if(returnValue == 3) {
+					JOptionPane.showMessageDialog(null, "ID cannot be negative");
+				}
+				if(returnValue == 4) {
+					JOptionPane.showMessageDialog(null, "Title cannot be null");
+				}
+				if(returnValue == 5) {
+					JOptionPane.showMessageDialog(null, "Rating cannot be null");
+				}
+				if(returnValue == 6) {
+					JOptionPane.showMessageDialog(null, "Release Date cannot be null");
+				}
+				if(returnValue == 7) {
+					JOptionPane.showMessageDialog(null, "Invalid value for isAdult");
+				}
+				if(returnValue == 8) {
+					JOptionPane.showMessageDialog(null, "Rating must be between 0 and 10");
+				}
 				
 				
 				cs = dbService.getConnection().prepareCall("{? = call addShow(?, ?, ?, ?)}");
@@ -75,9 +75,9 @@ public class TVShowService {
 				if(returnValue == 2) {
 					JOptionPane.showMessageDialog(null, "ID " + show.ID + " does not exist in Media table");
 				}
-//				if(returnValue == 3) {
-//					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Show table");
-//				}
+				if(returnValue == 3) {
+					JOptionPane.showMessageDialog(null, "ID " + show.ID + " already exists in Show table");
+				}
 				if(returnValue == 4) {
 					JOptionPane.showMessageDialog(null, "Runtime can not be null");
 				}
@@ -89,21 +89,21 @@ public class TVShowService {
 					cs.setLong(2, actID);
 					cs.execute();
 					returnValue = cs.getInt(1);
-//					if(returnValue == 1) {
-//						JOptionPane.showMessageDialog(null, "ActorID can not be null");
-//					}
-//					if(returnValue == 2) {
-//						JOptionPane.showMessageDialog(null, "Movie ID can not be null");
-//					}
-//					if(returnValue == 3) {
-//						JOptionPane.showMessageDialog(null, "ID does not exist in Actor table");
-//					}
+					if(returnValue == 1) {
+						JOptionPane.showMessageDialog(null, "ActorID can not be null");
+					}
+					if(returnValue == 2) {
+						JOptionPane.showMessageDialog(null, "Movie ID can not be null");
+					}
+					if(returnValue == 3) {
+						JOptionPane.showMessageDialog(null, "ID does not exist in Actor table");
+					}
 					if(returnValue == 4) {
 						JOptionPane.showMessageDialog(null, "ID does not exist in Media table");
 					}
-//					if(returnValue == 5) {
-//						JOptionPane.showMessageDialog(null, "Actor-Media pair must be unique");
-//					}
+					if(returnValue == 5) {
+						JOptionPane.showMessageDialog(null, "Actor-Media pair must be unique");
+					}
 				}
 				cs = dbService.getConnection().prepareCall("{? = call addHosts(?, ?)}");
 				cs.setLong(3,  show.ID);
@@ -112,21 +112,21 @@ public class TVShowService {
 					cs.setLong(2, serveID);
 					cs.execute();
 					returnValue = cs.getInt(1);
-//					if(returnValue == 1) {
-//						JOptionPane.showMessageDialog(null, "Service ID can not be null");
-//					}
-//					if(returnValue == 2) {
-//						JOptionPane.showMessageDialog(null, "Movie ID can not be null");
-//					}
+					if(returnValue == 1) {
+						JOptionPane.showMessageDialog(null, "Service ID can not be null");
+					}
+					if(returnValue == 2) {
+						JOptionPane.showMessageDialog(null, "Movie ID can not be null");
+					}
 					if(returnValue == 3) {
 						JOptionPane.showMessageDialog(null, "ID does not exist in Service table");
 					}
 					if(returnValue == 4) {
 						JOptionPane.showMessageDialog(null, "ID does not exist in Media table");
 					}
-//					if(returnValue == 5) {
-//						JOptionPane.showMessageDialog(null, "Service-Media pair must be unique");
-//					}
+					if(returnValue == 5) {
+						JOptionPane.showMessageDialog(null, "Service-Media pair must be unique");
+					}
 					
 				}
 				

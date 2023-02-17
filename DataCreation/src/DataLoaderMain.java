@@ -34,7 +34,7 @@ public class DataLoaderMain {
 			MovieService mov = new MovieService(dbcs);
 			//serve.addService();
 			//act.addActors();
-			//tv.addTVShows();
+			tv.addTVShows();
 			mov.addMovies();
 			
 		} catch (IOException ex) {

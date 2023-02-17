@@ -247,7 +247,7 @@ public class UserData {
 						hash = rs.getString(PWHash);
 						String saltStr = rs.getString(PWSalt);
 						salt = dec.decode(saltStr);
-
+						System.out.println(dec.decode(saltStr));
 						String pass = new String(validateOldPassField.getPassword());
 
 						if (LoginFrame.hashPassword(salt, pass).compareTo(hash) != 0) {
@@ -314,7 +314,10 @@ public class UserData {
 				if (newPass && oldPass) {
 					String strNewPass = new String(newPassword);
 					String newHash = LoginFrame.hashPassword(salt, strNewPass);
-					System.out.println(strNewPass);
+//					System.out.println(username);
+//					System.out.println(salt);
+//					System.out.println("New Password before hash: "+ strNewPass);
+//					System.out.println("New Password after hash: "+ newHash);
 					try {
 						CallableStatement cs = con.prepareCall("{? = call updUser(?, ?)}");
 						cs.setString(2, username);

@@ -96,7 +96,11 @@ public class LoginFrame {
 							String hash = rs.getString(PWHash);
 							String saltStr = rs.getString(PWSalt);
 							byte[] salt = dec.decode(saltStr);
-							
+//							System.out.println(user);
+//							System.out.println(salt);
+//							System.out.println("New Password before hash: "+ pass);
+//							System.out.println("New Password after hash: "+ hashPassword(salt, pass));
+//							System.out.println(hash);
 							if(hashPassword(salt, pass).compareTo(hash) == 0) {
 								loginFrame.setTitle("Connecting...");
 								
